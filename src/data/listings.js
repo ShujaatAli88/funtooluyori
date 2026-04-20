@@ -21,7 +21,7 @@ export const listings = [
     baths: 3,
     sqft: '2,400',
     type: 'Townhouse',
-    status: 'For Sale',
+    status: 'For Rent',
     image: '/listing_2.webp',
     featured: true,
   },

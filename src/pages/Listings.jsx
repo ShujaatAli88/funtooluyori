@@ -46,7 +46,7 @@ export default function Listings() {
   const filtered = useMemo(() => {
     const range = priceRanges[priceRange]
     return listings.filter((l) => {
-      if (activeTab === 'active' && l.status !== 'For Sale') return false
+      if (activeTab === 'active' && l.status !== 'For Sale' && l.status !== 'For Rent') return false
       if (activeTab === 'sold' && l.status !== 'Sold' && l.status !== 'Rented') return false
       const price = parsePrice(l.price)
       if (price < range.min || price > range.max) return false
@@ -93,7 +93,7 @@ export default function Listings() {
             transition={{ delay: 0.25 }}
             className="font-accent italic text-accent/70 text-lg"
           >
-            Exceptional homes across the Atlanta metro area.
+            Exceptional homes across the Upper Marlboro, MD.
           </motion.p>
         </div>
       </section>

@@ -312,7 +312,7 @@ export default function Home() {
               Current Market Snapshot
             </h2>
             <p className="font-body text-sm text-primary/40 max-w-md mx-auto">
-              Atlanta Metro Area · Data as of Q2 2025 · Source: Atlanta REALTORS® Association
+              Upper Marlboro, MD · Data as of Q2 2025 · Source: Keller Williams REALTORS® Association
             </p>
           </FadeUp>
 

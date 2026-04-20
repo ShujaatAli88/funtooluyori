@@ -39,13 +39,17 @@ export default function About() {
     <main className="pt-16 sm:pt-20">
       {/* Hero */}
       <section className="relative py-24 sm:py-32 bg-primary overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img
-            src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover"
-          />
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-20"
+            poster="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80"
+          >
+            <source src="/about-video.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center">
           <motion.p

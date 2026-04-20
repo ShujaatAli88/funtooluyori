@@ -121,7 +121,7 @@ export default function Footer() {
             <ul className="space-y-2 font-body text-sm text-background/70">
               <li>Licensed Realtor · Upper Marlboro, MD</li>
               <li>REALTOR® Member, NAR</li>
-              <li>Atlanta REALTORS® Association</li>
+              <li>Keller Williams REALTORS® Association</li>
               <li>Certified Luxury Home Specialist</li>
               <li>Accredited Buyer's Representative</li>
             </ul>

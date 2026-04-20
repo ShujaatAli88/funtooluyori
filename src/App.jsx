@@ -8,6 +8,8 @@ import About from './pages/About'
 import Listings from './pages/Listings'
 import Testimonials from './pages/Testimonials'
 import Contact from './pages/Contact'
+import Services from './pages/Services'
+import Blog from './pages/Blog'
 
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
@@ -37,6 +39,8 @@ function AnimatedRoutes() {
           <Route path="/listings" element={<Listings />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="*" element={<Home />} />
         </Routes>
         <Footer />

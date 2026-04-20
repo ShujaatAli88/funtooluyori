@@ -5,6 +5,7 @@ export default function ListingCard({ listing }) {
 
   const statusColors = {
     'For Sale': 'bg-secondary text-white',
+    'For Rent': 'bg-blue-600 text-white',
     'Under Contract': 'bg-primary text-white',
     'Sold': 'bg-accent text-primary',
     'Rented': 'bg-primary text-white',
