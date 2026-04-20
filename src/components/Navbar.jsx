@@ -38,11 +38,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-background/70 backdrop-blur-xl shadow-lg border-b border-accent/40'
-            : 'bg-background/10 backdrop-blur-none border-b border-accent/10'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-accent/40 transition-all duration-300"
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
