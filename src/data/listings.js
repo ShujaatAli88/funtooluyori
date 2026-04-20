@@ -11,6 +11,7 @@ export const listings = [
     status: 'For Sale',
     image: '/listing_1.webp',
     featured: true,
+    detailUrl: 'https://www.nestfully.com/homes-for-sale/1017-Flester-Lane-Laurel-MD-20707-430062034',
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export const listings = [
     status: 'For Rent',
     image: '/listing_2.webp',
     featured: true,
+    detailUrl: 'https://www.nestfully.com/rentals/1023-Flester-Lane-Laurel-MD-20707-427006180',
   },
   {
     id: 3,
@@ -37,6 +39,7 @@ export const listings = [
     status: 'For Sale',
     image: '/listing_3.webp',
     featured: true,
+    detailUrl: 'https://www.nestfully.com/homes-for-sale/1023-Flester-Lane-Laurel-MD-20707-420577060',
   },
   {
     id: 4,
