@@ -120,6 +120,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 font-body text-sm text-background/70">
               <li>Licensed Realtor · Upper Marlboro, MD</li>
+              <li>License #5014963</li>
               <li>REALTOR® Member, NAR</li>
               <li>Keller Williams REALTORS® Association</li>
               <li>Certified Luxury Home Specialist</li>
@@ -133,7 +134,7 @@ export default function Footer() {
             © 2025 Funto Oluyori. All rights reserved.
           </p>
           <p className="font-body text-xs text-background/40 text-center sm:text-right">
-            Licensed Real Estate Salesperson · Upper Marlboro, MD 20774
+            Licensed Real Estate Salesperson #5014963 · Upper Marlboro, MD 20774
           </p>
         </div>
       </div>

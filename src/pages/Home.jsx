@@ -136,6 +136,11 @@ export default function Home() {
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 -z-10 hidden sm:block" />
                 <div className="absolute -top-6 -left-6 w-20 h-20 bg-accent -z-10 hidden sm:block" />
+
+                {/* Floating stat */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-background px-5 py-4 shadow-xl">
+                  <p className="font-heading text-2xl font-semibold text-secondary text-center whitespace-nowrap">Exceeding Client's Expectations</p>
+                </div>
               </div>
             </FadeUp>
 
@@ -224,58 +229,6 @@ export default function Home() {
       </section>
 
       <StatsBar />
-
-      {/* Featured Listings */}
-
-      <section className="py-20 sm:py-28 bg-accent/30">
-
-        <div className="max-w-7xl mx-auto px-5 sm:px-8">
-
-          <FadeUp className="text-center mb-14">
-
-            <p className="font-body text-xs tracking-[0.25em] uppercase text-secondary mb-3">Properties</p>
-
-            <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-primary">
-
-              Featured Listings
-
-            </h2>
-
-          </FadeUp>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-
-            {featuredListings.map((listing, i) => (
-
-              <FadeUp key={listing.id} delay={i * 0.1}>
-
-                <ListingCard listing={listing} />
-
-              </FadeUp>
-
-            ))}
-
-          </div>
-
-          <FadeUp delay={0.3} className="text-center mt-12">
-
-            <Link
-
-              to="/listings"
-
-              className="inline-flex items-center gap-2 px-8 py-4 border border-primary text-primary font-body text-sm font-medium tracking-wide hover:bg-primary hover:text-background transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-
-            >
-
-              View All Listings
-
-            </Link>
-
-          </FadeUp>
-
-        </div>
-
-      </section>
 
       {/* Testimonials Carousel */}
       <section className="py-20 sm:py-28 bg-primary">

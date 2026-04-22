@@ -47,7 +47,7 @@ const contactInfo = [
       </svg>
     ),
     label: 'Office',
-    value: '1441 McCormick DR STE 1020\nUpper Marlboro, MD 20774',
+    value: '1441 McCormick DR STE 1020\nUpper Marlboro, MD 20774\nLicense #5014963',
     href: null,
   }
 ]

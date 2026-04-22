@@ -28,7 +28,7 @@ const certifications = [
 ]
 
 const timeline = [
-  { year: '', event: 'Licensed as a Real Estate Salesperson in Upper Marlboro, MD 20774' },
+  { year: '', event: 'Licensed as a Real Estate Salesperson in Upper Marlboro, MD 20774 | License #5014963' },
   { year: '', event: 'Achieved top producer status at Keller Williams Upper Marlboro, MD' },
   { year: '', event: 'Earned Certified Luxury Home Specialist designation' },
   { year: '', event: 'Accessed over 170,000 associates across the country to help customers sell their property' }
@@ -96,9 +96,8 @@ export default function About() {
                 <div className="absolute -top-5 -left-5 w-20 h-20 bg-accent -z-10 hidden sm:block" />
 
                 {/* Floating stat */}
-                <div className="absolute bottom-6 left-6 bg-background/95 backdrop-blur-sm px-5 py-4 shadow-xl">
-                  <p className="font-heading text-3xl font-semibold text-secondary">Exceeding Client's Expectations</p>
-                  {/* <p className="font-body text-xs text-primary/50 tracking-wide uppercase mt-0.5">License #</p> */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-background/95 backdrop-blur-sm px-5 py-4 shadow-xl">
+                  <p className="font-heading text-2xl font-semibold text-secondary text-center whitespace-nowrap">Exceeding Client's Expectations</p>
                 </div>
               </div>
             </FadeUp>
