@@ -119,7 +119,7 @@ export default function About() {
               <FadeUp delay={0.2}>
                 <div className="border-l-2 border-secondary pl-5 py-1">
                   <p className="font-accent italic text-xl text-primary/70 leading-relaxed">
-                    "My goal is to simplify the complexities of the real estate journey by combining high-energy advocacy with industry-leading technology. I am dedicated to providing my clients with a seamless, stress-free experience whether that means leveraging the massive reach of the Keller Williams network to sell a home at top value or using advanced MLS tools to find a buyer's perfect match"
+                    "As your real estate partner, I bring a wealth of expertise and knowledge to every transaction, ensuring that your investment goals are met with precision and care. With a proven track record of success in navigating the intricacies of the market, I am committed to delivering unparalleled results for investors, sellers, and buyers alike. Trust is paramount in this industry, and I strive to earn and maintain your trust through transparent communication, sound advice, and unwavering dedication to your objectives. Together, let’s build a relationship founded on trust, expertise, and mutual success."
                   </p>
                   <p className="font-body text-sm text-secondary mt-3 font-medium">— Funto Oluyori</p>
                 </div>
