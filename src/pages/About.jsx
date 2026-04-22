@@ -97,8 +97,8 @@ export default function About() {
 
                 {/* Floating stat */}
                 <div className="absolute bottom-6 left-6 bg-background/95 backdrop-blur-sm px-5 py-4 shadow-xl">
-                  <p className="font-heading text-3xl font-semibold text-secondary">5014963</p>
-                  <p className="font-body text-xs text-primary/50 tracking-wide uppercase mt-0.5">License #</p>
+                  <p className="font-heading text-3xl font-semibold text-secondary">Exceeding Client's Expectations</p>
+                  {/* <p className="font-body text-xs text-primary/50 tracking-wide uppercase mt-0.5">License #</p> */}
                 </div>
               </div>
             </FadeUp>
@@ -110,15 +110,9 @@ export default function About() {
                   Meet Funto Oluyori
                 </h2>
                 <p className="font-body text-primary/65 leading-relaxed mb-4">
-                  When you work with me, you will receive a knowledgeable and professional real estate agent, a committed ally to negotiate on your behalf, the systems in place to streamline buying your home and the backing of a trusted company, Keller Williams Realty. 
-
-                  Why Work With A Keller Williams Agent? 
-
-                  Looking to sell your home? As a real estate associate of Keller Williams Realty, you will now have access to over 170,000 associates across the country to help you sell your property. With our technology, we are leading the way in how homes are sold and purchased through online marketing. Through our KWLS, your listing will display on top name sites like Zillow and Trulia to get you the most brand exposure to your home. 
-
-                  Looking to purchase a home? With our KW Technology and advanced websites, searching for properties that are active on the MLS is a breeze. Now you can search 24/7, save properties to your profile to view later and schedule showings with me so you can see these properties in person. My job is to make the real estate buying process that much simpler and as a real estate associate of Keller Williams Realty, we are doing just that. 
-
-                  Our company prides ourselves in staying on the cutting edge of technology and if you select me as your real estate agent, you will receive all of this and more. You could never find a more dedicated, energetic, or focused agent to represent you. Please give me a call for a no obligation assessment of your needs!
+                  As a dedicated real estate professional licensed since 2023, I specialize in helping buyers, sellers, and investors navigate the market with confidence and clarity. My approach is rooted in providing strategic guidance, clear communication, and a results-driven mindset tailored to each client’s unique goals.
+                  Whether assisting first-time homebuyers, guiding sellers to maximize their property’s value, or working with investors to identify profitable opportunities, I bring a strong understanding of market trends and negotiation strategies to every transaction. I am committed to delivering a seamless experience while protecting my clients’ best interests at every step.
+                  My mission is simple—to exceed expectations by providing exceptional service, transparency, and trusted expertise in every real estate journey.
                 </p>
               </FadeUp>
 
