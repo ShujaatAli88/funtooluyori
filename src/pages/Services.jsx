@@ -27,7 +27,7 @@ export default function Services() {
               <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-primary">How I Can Help You</h2>
             </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
             <FadeUp delay={0.1}>
               <div className="text-center p-8 border border-accent/60 hover:border-secondary/40 hover:shadow-lg transition-all duration-500 group">
                 <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-5 text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
@@ -59,6 +59,17 @@ export default function Services() {
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-primary mb-3">Investing</h3>
                 <p className="font-body text-sm text-primary/55 leading-relaxed">Whether you're building a portfolio or exploring your first rental property, I bring the market data and deal analysis expertise to help you invest wisely.</p>
+              </div>
+            </FadeUp>
+            <FadeUp delay={0.4}>
+              <div className="text-center p-8 border border-accent/60 hover:border-secondary/40 hover:shadow-lg transition-all duration-500 group">
+                <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-5 text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                  </svg>
+                </div>
+                <h3 className="font-heading text-xl font-semibold text-primary mb-3">Renting</h3>
+                <p className="font-body text-sm text-primary/55 leading-relaxed">Finding the right rental shouldn't be stressful. I connect tenants with quality homes that match their lifestyle and budget while simplifying applications and lease negotiations.</p>
               </div>
             </FadeUp>
           </div>

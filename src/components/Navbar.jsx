@@ -40,13 +40,13 @@ export default function Navbar() {
       <header
         className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-accent/40 transition-all duration-300"
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 sm:h-20">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-24 sm:h-28">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 leading-none group h-full">
+          <Link to="/" className="flex items-center leading-none group h-full">
             <img
-              src="/FUNTO OLUYORI-LOGO-1.png"
+              src="/new_logo_funto.png"
               alt="Funto Oluyori Real Estate Logo"
-              className="h-14 sm:h-16 w-auto object-contain group-hover:opacity-80 transition-opacity duration-300"
+              className="h-24 sm:h-28 w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300"
             />
           </Link>
 
