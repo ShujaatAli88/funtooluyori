@@ -119,7 +119,7 @@ export const listings = [
     beds: 3,
     baths: 3,
     sqft: '2,484',
-    type: 'Condo',
+    type: 'Townhouse',
     status: 'Closed',
     image: 'https://ap.rdcpix.com/2325ed857d82886cae236c3ad5c34050l-m1585106839rd-w960_h720.webp',
     featured: false,
