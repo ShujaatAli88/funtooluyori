@@ -62,13 +62,6 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
-              <a
-                href="https://www.instagram.com/funto_oluyori/"
-                target="_blank"
-                rel="noreferrer"
-                className="font-body text-sm text-background/70 hover:text-secondary transition-colors duration-300"
-              >
-              </a>
             </div>
           </div>
 
