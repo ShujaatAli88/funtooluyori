@@ -115,15 +115,15 @@ export const listings = [
     id: 11,
     address: '2542 Verona Pl Unit B',
     city: 'Ellicott City, MD 21042',
-    price: 'Contact for Price',
+    price: '$589,990',
     beds: 3,
-    baths: 2.5,
+    baths: 3,
     sqft: '2,484',
     type: 'Condo',
     status: 'Closed',
     image: 'https://ap.rdcpix.com/2325ed857d82886cae236c3ad5c34050l-m1585106839rd-w960_h720.webp',
     featured: false,
-    detailUrl: 'https://www.realtor.com/realestateandhomes-detail/2542-Verona-Pl-Unit-B_Ellicott-City_MD_21042_M92268-51231'
+    detailUrl: 'https://www.zillow.com/homedetails/2542B-Verona-Pl-Ellicott-City-MD-21042/449004967_zpid/'
 },
 {
     id: 12,
