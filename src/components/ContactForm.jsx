@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const MAX_MESSAGE = 500
+const SUBMIT_URL = 'https://formsubmit.co/ajax/funto@kw.com'
 
 function Label({ htmlFor, children, required }) {
   return (
@@ -40,6 +41,8 @@ export default function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', intent: '', message: '' })
   const [focused, setFocused] = useState(null)
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -47,9 +50,35 @@ export default function ContactForm() {
     setForm((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError(false)
+    try {
+      const res = await fetch(SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone || 'Not provided',
+          interest: form.intent,
+          message: form.message,
+          _subject: `New inquiry from ${form.name} — Funto Oluyori RE`,
+          _replyto: form.email,
+          _captcha: 'false',
+        }),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        setError(true)
+      }
+    } catch {
+      setError(true)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const filled = (key) => form[key].trim().length > 0
@@ -205,22 +234,48 @@ export default function ContactForm() {
         />
       </div>
 
-      {/* Divider before submit */}
       <div className="border-t border-accent/60 pt-1" />
+
+      {/* Error message */}
+      <AnimatePresence>
+        {error && (
+          <motion.p
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="font-body text-xs text-red-500 text-center -mt-2"
+          >
+            Something went wrong. Please try again or email funto@kw.com directly.
+          </motion.p>
+        )}
+      </AnimatePresence>
 
       <motion.button
         type="submit"
-        whileHover={{ scale: 1.015 }}
-        whileTap={{ scale: 0.985 }}
-        className="group w-full py-4 bg-secondary text-white font-body font-medium tracking-widest text-sm uppercase hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 min-h-[52px] flex items-center justify-center gap-2.5 transition-colors duration-300"
+        disabled={loading}
+        whileHover={loading ? {} : { scale: 1.015 }}
+        whileTap={loading ? {} : { scale: 0.985 }}
+        className="group w-full py-4 bg-secondary text-white font-body font-medium tracking-widest text-sm uppercase hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 min-h-[52px] flex items-center justify-center gap-2.5 transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
       >
-        Send Message
-        <svg
-          className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-          fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
+        {loading ? (
+          <>
+            <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+            Sending…
+          </>
+        ) : (
+          <>
+            Send Message
+            <svg
+              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </>
+        )}
       </motion.button>
 
       <p className="font-body text-[11px] text-primary/30 text-center">
