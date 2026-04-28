@@ -48,6 +48,8 @@ export default function Listings() {
     return listings.filter((l) => {
       if (activeTab === 'active' && l.status !== 'For Sale' && l.status !== 'For Rent') return false
       if (activeTab === 'sold' && l.status !== 'Sold' && l.status !== 'Rented') return false
+      if (activeTab === 'lease' && l.status !== 'Lease' && l.status !== 'Lease') return false
+      if (activeTab === 'closed' && l.status !== 'Closed' && l.status !== 'Closed') return false
       const price = parsePrice(l.price)
       if (price < range.min || price > range.max) return false
       if (minBeds === '3+' && l.beds < 3) return false
@@ -121,6 +123,26 @@ export default function Listings() {
               }`}
             >
               Sold Listings
+            </button>
+            <button
+              onClick={() => setActiveTab('lease')}
+              className={`px-6 py-3 font-body text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 ${
+                activeTab === 'lease'
+                  ? 'bg-secondary text-white shadow-lg'
+                  : 'bg-white text-primary border border-accent hover:bg-accent/50'
+              }`}
+            >
+              Lease Properties
+            </button>
+            <button
+              onClick={() => setActiveTab('closed')}
+              className={`px-6 py-3 font-body text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 ${
+                activeTab === 'closed'
+                  ? 'bg-secondary text-white shadow-lg'
+                  : 'bg-white text-primary border border-accent hover:bg-accent/50'
+              }`}
+            >
+              Represented Buyers
             </button>
           </div>
         </div>
