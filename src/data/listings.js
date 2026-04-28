@@ -23,6 +23,7 @@ export const listings = [
     sqft: '882',
     type: 'Condo',
     status: 'Sold',
+    featured: false,
     image: 'https://photos.prod.cirrussystem.net/1774/f8fd5ae252d0fe3ed3d113fe28e89094/3065547529.jpeg?format=webp&d=s',
     detailUrl: 'https://www.nestfully.com/homes-for-sale/3205-Chester-Grove-Road-Unit-C-Upper-Marlboro-MD-20774-415147959'
   },
@@ -64,6 +65,7 @@ export const listings = [
     sqft: '2,040',
     type: 'Townhouse',
     status: 'Sold',
+    featured: false,
     image: 'https://photos.prod.cirrussystem.net/1774/29af0f4ed007b8a6e51539bcf484e912/918495342.jpeg?format=webp&d=s',
     detailUrl: 'https://www.nestfully.com/homes-for-sale/8138-Township-Drive-Owings-Mills-MD-21117-403977730'
   },
@@ -78,7 +80,7 @@ export const listings = [
     type: 'Single Family',
     status: 'Closed',
     image: 'https://photos.zillowstatic.com/fp/f2dc5af1b4f120723bb818af5dae3b1a-cc_ft_768.webp',
-    featured: true,
+    featured: false,
     detailUrl: 'https://www.zillow.com/homedetails/601-Castlewood-Pl-Upper-Marlboro-MD-20774/37474021_zpid/'
 },
 {
@@ -92,7 +94,7 @@ export const listings = [
     type: 'Townhouse',
     status: 'Closed',
     image: 'https://photos.zillowstatic.com/fp/725ed42f5cff7e2213b2ec6e08a2f3df-cc_ft_768.webp',
-    featured: true,
+    featured: false,
     detailUrl: 'https://www.zillow.com/homedetails/1108-Arcola-Ave-Silver-Spring-MD-20902/37334960_zpid/'
 },
 {
@@ -106,7 +108,7 @@ export const listings = [
     type: 'Townhouse',
     status: 'Closed',
     image: 'https://photos.zillowstatic.com/fp/b28875d016726afdf89762c0716ed5dd-cc_ft_768.webp',
-    featured: true,
+    featured: false,
     detailUrl: 'https://www.zillow.com/homedetails/108-Gray-St-Capitol-Heights-MD-20743/112117565_zpid/'
 },
 {
@@ -120,7 +122,7 @@ export const listings = [
     type: 'Condo',
     status: 'Closed',
     image: 'https://ap.rdcpix.com/2325ed857d82886cae236c3ad5c34050l-m1585106839rd-w960_h720.webp',
-    featured: true,
+    featured: false,
     detailUrl: 'https://www.realtor.com/realestateandhomes-detail/2542-Verona-Pl-Unit-B_Ellicott-City_MD_21042_M92268-51231'
 },
 {
@@ -134,7 +136,7 @@ export const listings = [
     type: 'Single Family',
     status: 'Closed',
     image: 'https://photos.zillowstatic.com/fp/dd97afb4f9f7243a209de721363e223e-cc_ft_768.webp',
-    featured: true,
+    featured: false,
     detailUrl: 'https://www.zillow.com/homedetails/11-Brooks-Nolen-Way-Owings-Mills-MD-21117/415875701_zpid/'
 },
 {
@@ -148,7 +150,7 @@ export const listings = [
     type: 'Townhouse',
     status: 'Closed',
     image: 'https://photos.zillowstatic.com/fp/6e2a36f2eb5e7424819c81f61d0be9b4-cc_ft_768.webp',
-    featured: true,
+    featured: false,
     detailUrl: 'https://www.zillow.com/homedetails/8750-Ritchboro-Rd-District-Heights-MD-20747/37511101_zpid/'
 },
 {
@@ -162,7 +164,7 @@ export const listings = [
     type: 'Townhouse',
     status: 'Lease',
     image: 'https://photos.zillowstatic.com/fp/fd67fa8374f266dd078aaa0b0fc75e49-cc_ft_768.webp',
-    featured: true,
+    featured: false,
     detailUrl: 'https://www.zillow.com/homedetails/4-Axios-Way-Rosedale-MD-21237/2063222207_zpid/'
 },
 {
@@ -176,7 +178,7 @@ export const listings = [
     type: 'Single Family',
     status: 'Lease',
     image: 'https://photos.zillowstatic.com/fp/dd97afb4f9f7243a209de721363e223e-cc_ft_768.webp',
-    featured: true,
+    featured: false,
     detailUrl: 'https://www.zillow.com/homedetails/11-Brooks-Nolen-Way-Owings-Mills-MD-21117/415875701_zpid/'
 }
 ]
