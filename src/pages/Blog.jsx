@@ -26,7 +26,7 @@ export default function Blog() {
             <div className="text-center mb-14">
               <p className="font-body text-xs tracking-[0.25em] uppercase text-secondary mb-3">Blog</p>
               <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-primary mb-3">Current Market Snapshot</h2>
-              <p className="font-body text-sm text-primary/40 max-w-md mx-auto">Upper Marlboro, MD · Data as of Q2 2025 · Source: Keller Williams REALTORS® Realty</p>
+              <p className="font-body text-sm text-primary/40 max-w-md mx-auto">State of Maryland · Data as of Q2 2025 · Source: Keller Williams REALTORS® Realty</p>
             </div>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">

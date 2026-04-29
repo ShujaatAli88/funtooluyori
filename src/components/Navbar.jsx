@@ -22,143 +22,250 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [location])
+  useEffect(() => { setMenuOpen(false) }, [location])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  // Determine navbar appearance based on scroll position
-  const isScrolled = scrollY > 40
   const isHomePage = location.pathname === '/'
+  const isScrolled = scrollY > 60
+  // Transparent mode: home page AND not yet scrolled
+  const isTransparent = isHomePage && !isScrolled
 
   return (
     <>
-      <header
-        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-accent/40 transition-all duration-300"
-      >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-24 sm:h-28">
-          {/* Logo */}
-          <Link to="/" className="flex items-center leading-none group h-full">
-            <img
-              src="/new_logo_funto.png"
-              alt="Funto Oluyori Real Estate Logo"
-              className="h-24 sm:h-28 w-auto object-contain group-hover:scale-[1.03] transition-transform duration-300"
-            />
-          </Link>
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map(({ label, to }) => (
+        {/* ── Utility bar ── */}
+        <div
+          className={`transition-all duration-500 ${
+            isTransparent
+              ? 'bg-black/25 backdrop-blur-sm'
+              : 'bg-primary'
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 h-8 flex items-center justify-center sm:justify-end gap-5">
+            <a
+              href="tel:+19808004892"
+              className="font-body text-[11px] tracking-[0.1em] text-white/50 hover:text-secondary transition-colors duration-300 flex items-center gap-1.5"
+            >
+              <svg className="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+              <span className="hidden sm:inline">Direct:&nbsp;</span>(980) 800-4892
+            </a>
+            <span className="hidden sm:block w-px h-3 bg-white/15" />
+            <a
+              href="tel:+12407375000"
+              className="font-body text-[11px] tracking-[0.1em] text-white/50 hover:text-secondary transition-colors duration-300 flex items-center gap-1.5"
+            >
+              <svg className="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+              <span className="hidden sm:inline">Office:&nbsp;</span>(240) 737-5000
+            </a>
+          </div>
+        </div>
+
+        {/* ── Main nav ── */}
+        <div
+          className={`transition-all duration-500 relative ${
+            isTransparent
+              ? 'bg-primary/40 backdrop-blur-md'
+              : 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-accent/30'
+          }`}
+        >
+          {/* Gold accent line at bottom — only when scrolled */}
+          {!isTransparent && (
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/35 to-transparent" />
+          )}
+
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-20 sm:h-24">
+
+            {/* Logo */}
+            <Link to="/" className="flex items-center leading-none group h-full">
+              <img
+                src="/new_logo_funto.png"
+                alt="Funto Oluyori Real Estate Logo"
+                className="h-20 sm:h-24 w-auto object-contain group-hover:scale-[1.03] transition-all duration-500"
+              />
+            </Link>
+
+            {/* Desktop nav */}
+            <nav className="hidden md:flex items-center gap-7">
+              {navLinks.map(({ label, to }) => {
+                const isActive = location.pathname === to
+                return (
+                  <Link
+                    key={to}
+                    to={to}
+                    className={`font-body text-sm tracking-wide transition-all duration-300 relative group py-1 ${
+                      isActive
+                        ? 'text-secondary'
+                        : isTransparent
+                        ? 'text-white/80 hover:text-white'
+                        : 'text-primary hover:text-secondary'
+                    }`}
+                  >
+                    {label}
+                    {/* Animated underline */}
+                    <span
+                      className={`absolute -bottom-0.5 left-0 h-px transition-all duration-300 ${
+                        isActive
+                          ? 'w-full bg-secondary'
+                          : isTransparent
+                          ? 'w-0 group-hover:w-full bg-white/60'
+                          : 'w-0 group-hover:w-full bg-secondary'
+                      }`}
+                    />
+                    {/* Active dot */}
+                    {isActive && (
+                      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-secondary" />
+                    )}
+                  </Link>
+                )
+              })}
+
+              {/* CTA button */}
               <Link
-                key={to}
-                to={to}
-                className={`font-body text-sm tracking-wide transition-colors duration-300 relative group ${
-                  location.pathname === to
-                    ? 'text-secondary'
-                    : isScrolled
-                    ? 'text-primary hover:text-secondary'
-                    : 'text-primary hover:text-secondary'
+                to="/contact"
+                className={`ml-1 px-5 py-2.5 font-body text-sm font-medium tracking-wide transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 min-h-[44px] flex items-center ${
+                  isTransparent
+                    ? 'border border-secondary/80 text-secondary hover:bg-secondary hover:text-white hover:shadow-lg hover:shadow-secondary/20'
+                    : 'bg-secondary text-white hover:bg-secondary/90 hover:shadow-md'
                 }`}
               >
-                {label}
-                <span
-                  className={`absolute -bottom-0.5 left-0 h-px bg-secondary transition-all duration-300 ${
-                    location.pathname === to ? 'w-full' : 'w-0 group-hover:w-full'
+                Let's Connect
+              </Link>
+            </nav>
+
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              className="md:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 focus:outline-none focus:ring-2 focus:ring-secondary rounded"
+            >
+              {['top', 'mid', 'bot'].map((key, idx) => (
+                <motion.span
+                  key={key}
+                  animate={
+                    idx === 0
+                      ? menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
+                      : idx === 1
+                      ? menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }
+                      : menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
+                  }
+                  transition={{ duration: 0.3 }}
+                  className={`block w-6 h-px origin-center transition-colors duration-500 ${
+                    isTransparent ? 'bg-white' : 'bg-primary'
                   }`}
                 />
-              </Link>
-            ))}
-            <Link
-              to="/contact"
-              className="ml-2 px-5 py-2.5 bg-secondary text-white font-body text-sm font-medium tracking-wide rounded-sm hover:bg-secondary/90 hover:shadow-md transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 min-h-[44px] flex items-center"
-            >
-              Let's Connect
-            </Link>
-          </nav>
-
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            className="md:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 focus:outline-none focus:ring-2 focus:ring-secondary rounded"
-          >
-            <motion.span
-              animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="block w-6 h-px bg-primary origin-center"
-            />
-            <motion.span
-              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.2 }}
-              className="block w-6 h-px bg-primary"
-            />
-            <motion.span
-              animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="block w-6 h-px bg-primary origin-center"
-            />
-          </button>
+              ))}
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Mobile drawer */}
+      {/* ── Mobile drawer — dark luxury theme ── */}
       <AnimatePresence>
         {menuOpen && (
           <>
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-40 bg-primary/40 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
               onClick={() => setMenuOpen(false)}
             />
+
+            {/* Drawer */}
             <motion.nav
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.35, ease: 'easeInOut' }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-background shadow-2xl flex flex-col pt-20 pb-10 px-8 md:hidden"
+              transition={{ type: 'tween', duration: 0.38, ease: [0.25, 0.1, 0.25, 1] }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] bg-primary flex flex-col md:hidden overflow-hidden"
             >
-              <div className="flex flex-col gap-6 mt-4">
+              {/* Gold top accent line */}
+              <div className="h-[3px] bg-gradient-to-r from-secondary via-secondary/60 to-transparent flex-shrink-0" />
+
+              {/* Close button */}
+              <button
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="absolute top-5 right-5 w-9 h-9 flex items-center justify-center text-background/40 hover:text-secondary transition-colors duration-300 focus:outline-none"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Brand mark */}
+              <div className="px-8 pt-10 pb-8 border-b border-background/8">
+                <p className="font-heading text-lg font-semibold text-background tracking-wide">Funto Oluyori</p>
+                <p className="font-body text-[9px] tracking-[0.28em] uppercase text-secondary mt-0.5">Real Estate</p>
+              </div>
+
+              {/* Nav links */}
+              <div className="flex flex-col px-8 py-8 gap-1 flex-1">
                 {navLinks.map(({ label, to }, i) => (
                   <motion.div
                     key={to}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.07 + 0.1 }}
+                    transition={{ delay: i * 0.06 + 0.1, ease: [0.25, 0.1, 0.25, 1] }}
                   >
                     <Link
                       to={to}
-                      className={`font-heading text-2xl font-medium transition-colors duration-300 block ${
-                        location.pathname === to ? 'text-secondary' : 'text-primary hover:text-secondary'
+                      className={`group flex items-center gap-0 hover:gap-3 py-3 font-heading text-xl font-medium transition-all duration-300 border-b border-background/5 ${
+                        location.pathname === to
+                          ? 'text-secondary'
+                          : 'text-background/70 hover:text-secondary'
                       }`}
                     >
+                      <span className="block w-0 group-hover:w-2 h-px bg-secondary transition-all duration-300 flex-shrink-0" />
                       {label}
                     </Link>
                   </motion.div>
                 ))}
+
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 24 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.45 }}
-                  className="mt-4"
+                  transition={{ delay: 0.48 }}
+                  className="mt-6"
                 >
                   <Link
                     to="/contact"
-                    className="block w-full text-center px-6 py-3.5 bg-secondary text-white font-body font-medium tracking-wide rounded-sm hover:bg-secondary/90 transition-all duration-300 min-h-[44px]"
+                    className="block w-full text-center px-6 py-3.5 bg-secondary text-white font-body text-sm font-medium tracking-wide hover:bg-secondary/90 transition-all duration-300 min-h-[44px]"
                   >
                     Let's Connect
                   </Link>
                 </motion.div>
               </div>
-              <div className="mt-auto">
-                <p className="font-body text-xs text-primary/40 tracking-widest uppercase">
-                  Licensed Realtor · Upper Marlboro, MD
+
+              {/* Bottom contact info */}
+              <div className="px-8 py-6 border-t border-background/8 flex flex-col gap-3">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="font-body text-[9px] tracking-[0.25em] uppercase text-secondary mb-1">Direct</p>
+                    <a href="tel:+19808004892" className="font-body text-sm text-background/55 hover:text-secondary transition-colors">
+                      (980) 800-4892
+                    </a>
+                  </div>
+                  <div>
+                    <p className="font-body text-[9px] tracking-[0.25em] uppercase text-secondary mb-1">Office</p>
+                    <a href="tel:+12407375000" className="font-body text-sm text-background/55 hover:text-secondary transition-colors">
+                      (240) 737-5000
+                    </a>
+                  </div>
+                </div>
+                <p className="font-body text-[9px] text-background/22 tracking-widest uppercase">
+                  Licensed Realtor · State of Maryland
                 </p>
               </div>
             </motion.nav>

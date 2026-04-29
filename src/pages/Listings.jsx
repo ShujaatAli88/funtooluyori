@@ -95,55 +95,33 @@ export default function Listings() {
             transition={{ delay: 0.25 }}
             className="font-accent italic text-accent/70 text-lg"
           >
-            Exceptional homes across the Upper Marlboro, MD.
+            Exceptional homes across the State of Maryland.
           </motion.p>
         </div>
       </section>
 
       {/* Tabs */}
-      <section className="bg-accent/20 py-6">
+      <section className="bg-accent/20 py-5 sm:py-6">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
-          <div className="flex justify-center gap-4">
-            <button
-              onClick={() => setActiveTab('active')}
-              className={`px-6 py-3 font-body text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 ${
-                activeTab === 'active'
-                  ? 'bg-secondary text-white shadow-lg'
-                  : 'bg-white text-primary border border-accent hover:bg-accent/50'
-              }`}
-            >
-              Active Listings
-            </button>
-            <button
-              onClick={() => setActiveTab('sold')}
-              className={`px-6 py-3 font-body text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 ${
-                activeTab === 'sold'
-                  ? 'bg-secondary text-white shadow-lg'
-                  : 'bg-white text-primary border border-accent hover:bg-accent/50'
-              }`}
-            >
-              Sold Listings
-            </button>
-            <button
-              onClick={() => setActiveTab('lease')}
-              className={`px-6 py-3 font-body text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 ${
-                activeTab === 'lease'
-                  ? 'bg-secondary text-white shadow-lg'
-                  : 'bg-white text-primary border border-accent hover:bg-accent/50'
-              }`}
-            >
-              Lease Properties
-            </button>
-            <button
-              onClick={() => setActiveTab('closed')}
-              className={`px-6 py-3 font-body text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 ${
-                activeTab === 'closed'
-                  ? 'bg-secondary text-white shadow-lg'
-                  : 'bg-white text-primary border border-accent hover:bg-accent/50'
-              }`}
-            >
-              Represented Buyers
-            </button>
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-2 sm:gap-3">
+            {[
+              { key: 'active', label: 'Active Listings' },
+              { key: 'sold', label: 'Sold Listings' },
+              { key: 'lease', label: 'Lease Properties' },
+              { key: 'closed', label: 'Represented Buyers' },
+            ].map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => setActiveTab(key)}
+                className={`px-4 sm:px-6 py-2.5 sm:py-3 font-body text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 min-h-[44px] ${
+                  activeTab === key
+                    ? 'bg-secondary text-white shadow-lg'
+                    : 'bg-white text-primary border border-accent hover:bg-accent/50'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
       </section>

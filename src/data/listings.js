@@ -108,7 +108,7 @@ export const listings = [
   type: 'Townhouse',
   status: 'Closed',
   image: 'https://photos.zillowstatic.com/fp/dfbf60b3c118eceebfdbe6eb80fe2181-cc_ft_768.webp',
-  featured: true,
+  featured: false,
   detailUrl: 'https://www.zillow.com/homes/504-Pebblebrook-Ln-Glen-Burnie-MD-21060_rb/',
 },
 {

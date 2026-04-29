@@ -81,16 +81,26 @@ function TestimonialsCarousel() {
   const featured = testimonials.slice(0, 4)
 
   useEffect(() => {
+    if (featured.length === 0) return
     const id = setInterval(() => setCurrent((c) => (c + 1) % featured.length), 5000)
     return () => clearInterval(id)
   }, [featured.length])
+
+  if (featured.length === 0) {
+    return (
+      <div className="text-center py-6">
+        <p className="font-accent italic text-accent/60 text-lg leading-relaxed mb-2">
+          Client reviews coming soon — check back here or visit our Google Business profile.
+        </p>
+      </div>
+    )
+  }
 
   return (
     <div className="relative overflow-hidden">
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${current * 100}%)` }}
-        onMouseEnter={() => {}}
       >
         {featured.map((t) => (
           <div key={t.id} className="w-full flex-shrink-0 px-1">
@@ -265,7 +275,7 @@ export default function Home() {
               Current Market Snapshot
             </h2>
             <p className="font-body text-sm text-primary/40 max-w-md mx-auto">
-              Upper Marlboro, MD · Data as of Q2 2025 · Source: Keller Williams REALTORS® Association
+              State of Maryland · Data as of Q2 2025 · Source: Keller Williams REALTORS® Association
             </p>
           </FadeUp>
 

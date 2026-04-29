@@ -28,8 +28,8 @@ const certifications = [
 ]
 
 const timeline = [
-  { year: '', event: 'Licensed as a Real Estate Salesperson in Upper Marlboro, MD 20774 | License #5014963' },
-  { year: '', event: 'Achieved top producer status at Keller Williams Upper Marlboro, MD' },
+  { year: '', event: 'Licensed as a Real Estate Salesperson in the State of Maryland | License #5014963' },
+  { year: '', event: 'Achieved top producer status at Keller Williams, Upper Marlboro office' },
   { year: '', event: 'Earned Certified Luxury Home Specialist designation' },
   { year: '', event: 'Accessed over 170,000 associates across the country to help customers sell their property' }
 ]

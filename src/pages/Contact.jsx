@@ -64,12 +64,11 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-            {/* Left — image + quote (desktop only) */}
+            {/* Left — image + quote + contact info (desktop only) */}
             <FadeUp className="hidden lg:block">
               {/* Image with decorative frame */}
               <div className="relative mb-10">
                 <div className="absolute -top-4 -left-4 w-[calc(75%+1rem)] h-[calc(75%+1rem)] border border-secondary/30 pointer-events-none" />
-
                 <div className="aspect-[3/4] overflow-hidden relative group">
                   <img
                     src="/funto_profile_image.jpg"
@@ -79,11 +78,10 @@ export default function Contact() {
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent pt-16 pb-5 px-6">
                     <p className="font-heading text-lg font-semibold text-white leading-tight">Funto Oluyori</p>
                     <p className="font-body text-[10px] tracking-[0.25em] uppercase text-secondary mt-1">
-                      Licensed Realtor · MD
+                      Licensed Realtor · State of Maryland
                     </p>
                   </div>
                 </div>
-
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-secondary/20" />
               </div>
 
@@ -97,6 +95,7 @@ export default function Contact() {
                   <span className="font-body text-[10px] tracking-[0.25em] uppercase text-secondary">Funto Oluyori</span>
                 </footer>
               </blockquote>
+
             </FadeUp>
 
             {/* Right — form */}
@@ -124,8 +123,11 @@ export default function Contact() {
           <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center">
             <p className="font-body text-xs tracking-[0.25em] uppercase text-secondary mb-3">Location</p>
             <h3 className="font-heading text-2xl font-semibold text-primary mb-2">
-              Upper Marlboro, MD
+              Serving the State of Maryland
             </h3>
+            <p className="font-body text-sm text-primary/55 mt-1">
+              Brokerage office located in Upper Marlboro, MD
+            </p>
           </div>
         </FadeUp>
       </section>
