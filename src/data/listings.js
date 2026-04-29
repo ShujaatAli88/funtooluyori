@@ -98,6 +98,20 @@ export const listings = [
     detailUrl: 'https://www.zillow.com/homedetails/1108-Arcola-Ave-Silver-Spring-MD-20902/37334960_zpid/'
 },
 {
+  id: 1,
+  address: '504 Pebblebrook Ln',
+  city: 'Glen Burnie, MD 21060',
+  price: '$420,000',
+  beds: 4,
+  baths: 4,
+  sqft: '1,960',
+  type: 'Townhouse',
+  status: 'Closed',
+  image: 'https://photos.zillowstatic.com/fp/dfbf60b3c118eceebfdbe6eb80fe2181-cc_ft_768.webp',
+  featured: true,
+  detailUrl: 'https://www.zillow.com/homes/504-Pebblebrook-Ln-Glen-Burnie-MD-21060_rb/',
+},
+{
     id: 10,
     address: '108 Gray St',
     city: 'Capitol Heights, MD 20743',
