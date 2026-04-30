@@ -41,11 +41,11 @@ export default function ListingCard({ listing }) {
         <h3 className="font-heading text-lg font-semibold text-primary leading-snug mb-0.5">
           {address}
         </h3>
-        <p className="font-body text-sm text-primary/50 mb-4">{city}</p>
+        <p className="font-body text-sm text-primary/75 mb-4">{city}</p>
 
         <p className="font-heading text-2xl font-semibold text-primary mb-4">{price}</p>
 
-        <div className="flex gap-5 font-body text-sm text-primary/60 mb-5 border-t border-accent pt-4">
+        <div className="flex gap-5 font-body text-sm text-primary/80 mb-5 border-t border-accent pt-4">
           <span>
             <strong className="text-primary font-medium">{beds}</strong> Beds
           </span>

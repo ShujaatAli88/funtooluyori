@@ -172,8 +172,11 @@ export default function HeroSection() {
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, delay: 0.38, ease: [0.25, 0.1, 0.25, 1] }}
-                className="font-heading font-semibold text-white leading-[0.88] tracking-tight"
-                style={{ fontSize: 'clamp(2.6rem, 8vw, 5.5rem)' }}
+                className="font-heading font-extrabold text-white leading-[0.88] tracking-tight"
+                style={{
+                  fontSize: 'clamp(3.25rem, 5.5vw, 4rem)',
+                  textShadow: '0 2px 20px rgba(0,0,0,0.7)',
+                }}
               >
                 The Home
               </motion.h1>
@@ -184,8 +187,11 @@ export default function HeroSection() {
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, delay: 0.52, ease: [0.25, 0.1, 0.25, 1] }}
-                className="font-accent italic text-secondary leading-tight"
-                style={{ fontSize: 'clamp(2rem, 6.5vw, 4.5rem)' }}
+                className="font-accent italic text-secondary leading-tight font-bold"
+                style={{
+                  fontSize: 'clamp(2.5rem, 4.5vw, 3.25rem)',
+                  textShadow: '0 2px 16px rgba(0,0,0,0.6)',
+                }}
               >
                 You Deserve.
               </motion.p>
@@ -197,10 +203,12 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.78 }}
-            className="font-body text-white/45 text-sm leading-relaxed mb-8 sm:mb-10 max-w-xs sm:max-w-sm"
+            className="font-body text-white/80 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-xs sm:max-w-sm"
+            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}
           >
             Trusted advisor. Relentless advocate. Results you can count on.
           </motion.p>
+
 
         </div>
       </div>

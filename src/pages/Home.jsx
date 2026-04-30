@@ -162,7 +162,7 @@ export default function Home() {
               <p className="font-accent italic text-xl text-secondary border-l-2 border-secondary pl-5 mb-6 leading-relaxed">
                 "Every client deserves an advocate who treats their goals as if they were my own."
               </p>
-              <p className="font-body text-primary/60 leading-relaxed mb-4">
+              <p className="font-body text-primary/85 leading-relaxed mb-4">
                 <strong>Why Work With A Keller Williams Agent?</strong><br /><br />
                 Looking to sell your home? As a real estate associate of Keller Williams Realty, you will now have access to over 170,000 associates across the country to help you sell your property. With our technology, we are leading the way in how homes are sold and purchased through online marketing. Through our KWLS, your listing will display on top name sites like Zillow and Trulia to get you the most brand exposure to your home. 
                 Looking to purchase a home? With our KW Technology and advanced websites, searching for properties that are active on the MLS is a breeze. Now you can search 24/7, save properties to your profile to view later and schedule showings with me so you can see these properties in person. My job is to make the real estate buying process that much simpler and as a real estate associate of Keller Williams Realty, we are doing just that. 
@@ -230,7 +230,7 @@ export default function Home() {
                     {icon}
                   </div>
                   <h3 className="font-heading text-xl font-semibold text-primary mb-3">{title}</h3>
-                  <p className="font-body text-sm text-primary/55 leading-relaxed">{desc}</p>
+                  <p className="font-body text-sm text-primary/80 leading-relaxed">{desc}</p>
                 </div>
               </FadeUp>
             ))}
@@ -274,7 +274,7 @@ export default function Home() {
             <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-primary mb-3">
               Current Market Snapshot
             </h2>
-            <p className="font-body text-sm text-primary/40 max-w-md mx-auto">
+            <p className="font-body text-sm text-primary/65 max-w-md mx-auto">
               State of Maryland · Data as of Q2 2025 · Source: Keller Williams REALTORS® Association
             </p>
           </FadeUp>
@@ -283,7 +283,7 @@ export default function Home() {
             {marketStats.map(({ label, value, change, trend }, i) => (
               <FadeUp key={label} delay={i * 0.1}>
                 <div className="text-center p-8 bg-accent/20 border border-accent/60">
-                  <p className="font-body text-xs tracking-[0.15em] uppercase text-primary/40 mb-3">{label}</p>
+                  <p className="font-body text-xs tracking-[0.15em] uppercase text-primary/65 mb-3">{label}</p>
                   <p className="font-heading text-3xl sm:text-4xl font-semibold text-primary mb-2">{value}</p>
                   <span
                     className={`inline-flex items-center gap-1 font-body text-xs font-medium ${

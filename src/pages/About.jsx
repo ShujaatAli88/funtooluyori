@@ -108,7 +108,7 @@ export default function About() {
                 <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-primary leading-snug mb-6">
                   Meet Funto Oluyori
                 </h2>
-                <p className="font-body text-primary/65 leading-relaxed mb-4">
+                <p className="font-body text-primary/85 leading-relaxed mb-4">
                   As a dedicated real estate professional licensed since 2023, I specialize in helping buyers, sellers, and investors navigate the market with confidence and clarity. My approach is rooted in providing strategic guidance, clear communication, and a results-driven mindset tailored to each client’s unique goals.
                   Whether assisting first-time homebuyers, guiding sellers to maximize their property’s value, or working with investors to identify profitable opportunities, I bring a strong understanding of market trends and negotiation strategies to every transaction. I am committed to delivering a seamless experience while protecting my clients’ best interests at every step.
                   My mission is simple—to exceed expectations by providing exceptional service, transparency, and trusted expertise in every real estate journey.
@@ -117,7 +117,7 @@ export default function About() {
 
               <FadeUp delay={0.2}>
                 <div className="border-l-2 border-secondary pl-5 py-1">
-                  <p className="font-accent italic text-xl text-primary/70 leading-relaxed">
+                  <p className="font-accent italic text-xl text-primary/85 leading-relaxed">
                     "As your real estate partner, I bring a wealth of expertise and knowledge to every transaction, ensuring that your investment goals are met with precision and care. With a proven track record of success in navigating the intricacies of the market, I am committed to delivering unparalleled results for investors, sellers, and buyers alike. Trust is paramount in this industry, and I strive to earn and maintain your trust through transparent communication, sound advice, and unwavering dedication to your objectives. Together, let’s build a relationship founded on trust, expertise, and mutual success."
                   </p>
                   <p className="font-body text-sm text-secondary mt-3 font-medium">— Funto Oluyori</p>
@@ -145,7 +145,7 @@ export default function About() {
                   <div className={`flex items-center gap-6 sm:gap-8 ${i % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}>
                     <div className={`flex-1 ${i % 2 === 0 ? 'sm:text-right' : 'sm:text-left'}`}>
                       <p className="font-body text-xs tracking-[0.2em] uppercase text-secondary mb-1">{year}</p>
-                      <p className="font-body text-sm sm:text-base text-primary/70 leading-relaxed">{event}</p>
+                      <p className="font-body text-sm sm:text-base text-primary/85 leading-relaxed">{event}</p>
                     </div>
                     <div className="hidden sm:flex w-4 h-4 rounded-full bg-secondary border-4 border-background shadow-md flex-shrink-0 z-10" aria-hidden="true" />
                     <div className="flex-1 hidden sm:block" />
@@ -173,7 +173,7 @@ export default function About() {
                   <div className="w-12 h-12 flex-shrink-0 bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors duration-300">
                     <span className="font-heading text-xs font-bold text-secondary">{abbr}</span>
                   </div>
-                  <p className="font-body text-sm text-primary/70 leading-snug">{name}</p>
+                  <p className="font-body text-sm text-primary/85 leading-snug">{name}</p>
                 </div>
               </FadeUp>
             ))}
@@ -222,7 +222,7 @@ export default function About() {
           <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-primary mb-6 max-w-lg mx-auto">
             Let's Find Your Perfect Home Together
           </h2>
-          <p className="font-body text-primary/55 text-sm mb-8 max-w-sm mx-auto leading-relaxed">
+          <p className="font-body text-primary/75 text-sm mb-8 max-w-sm mx-auto leading-relaxed">
             Reach out for a complimentary consultation — no pressure, just a conversation.
           </p>
           <Link

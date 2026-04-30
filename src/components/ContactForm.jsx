@@ -8,7 +8,7 @@ function Label({ htmlFor, children, required }) {
   return (
     <label
       htmlFor={htmlFor}
-      className="flex items-center gap-1.5 font-body text-[11px] tracking-[0.18em] uppercase text-primary/55 mb-2 font-medium"
+      className="flex items-center gap-1.5 font-body text-[11px] tracking-[0.18em] uppercase text-primary/80 mb-2 font-medium"
     >
       {children}
       {required && <span className="text-secondary text-[10px] leading-none">●</span>}
@@ -123,7 +123,7 @@ export default function ContactForm() {
       {/* Progress bar */}
       <div className="mb-1">
         <div className="flex justify-between items-center mb-2">
-          <span className="font-body text-[10px] tracking-[0.2em] uppercase text-primary/30">Progress</span>
+          <span className="font-body text-[10px] tracking-[0.2em] uppercase text-primary/65">Progress</span>
           <span className="font-body text-[10px] text-secondary/70 tabular-nums">
             {filledCount} / {requiredKeys.length} required
           </span>
@@ -219,7 +219,7 @@ export default function ContactForm() {
           <Label htmlFor="message" required>Message</Label>
           <span
             className={`font-body text-[10px] tabular-nums transition-colors duration-200 ${
-              form.message.length > MAX_MESSAGE * 0.85 ? 'text-secondary' : 'text-primary/30'
+              form.message.length > MAX_MESSAGE * 0.85 ? 'text-secondary' : 'text-primary/60'
             }`}
           >
             {form.message.length} / {MAX_MESSAGE}
@@ -278,7 +278,7 @@ export default function ContactForm() {
         )}
       </motion.button>
 
-      <p className="font-body text-[11px] text-primary/30 text-center">
+      <p className="font-body text-[11px] text-primary/60 text-center">
         Your information is kept private and never shared.
       </p>
     </form>

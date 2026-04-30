@@ -31,7 +31,6 @@ export default function Navbar() {
 
   const isHomePage = location.pathname === '/'
   const isScrolled = scrollY > 60
-  // Transparent mode: home page AND not yet scrolled
   const isTransparent = isHomePage && !isScrolled
 
   return (
@@ -41,9 +40,7 @@ export default function Navbar() {
         {/* ── Utility bar ── */}
         <div
           className={`transition-all duration-500 ${
-            isTransparent
-              ? 'bg-black/25 backdrop-blur-sm'
-              : 'bg-primary'
+            isTransparent ? 'bg-black/25 backdrop-blur-sm' : 'bg-primary'
           }`}
         >
           <div className="max-w-7xl mx-auto px-5 sm:px-8 h-8 flex items-center justify-center sm:justify-end gap-5">
@@ -77,7 +74,6 @@ export default function Navbar() {
               : 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-accent/30'
           }`}
         >
-          {/* Gold accent line at bottom — only when scrolled */}
           {!isTransparent && (
             <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/35 to-transparent" />
           )}
@@ -110,7 +106,6 @@ export default function Navbar() {
                     }`}
                   >
                     {label}
-                    {/* Animated underline */}
                     <span
                       className={`absolute -bottom-0.5 left-0 h-px transition-all duration-300 ${
                         isActive
@@ -120,7 +115,6 @@ export default function Navbar() {
                           : 'w-0 group-hover:w-full bg-secondary'
                       }`}
                     />
-                    {/* Active dot */}
                     {isActive && (
                       <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-secondary" />
                     )}
@@ -168,11 +162,10 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* ── Mobile drawer — dark luxury theme ── */}
+      {/* ── Mobile drawer ── */}
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -182,7 +175,6 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             />
 
-            {/* Drawer */}
             <motion.nav
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -190,10 +182,8 @@ export default function Navbar() {
               transition={{ type: 'tween', duration: 0.38, ease: [0.25, 0.1, 0.25, 1] }}
               className="fixed top-0 right-0 bottom-0 z-50 w-[280px] bg-primary flex flex-col md:hidden overflow-hidden"
             >
-              {/* Gold top accent line */}
               <div className="h-[3px] bg-gradient-to-r from-secondary via-secondary/60 to-transparent flex-shrink-0" />
 
-              {/* Close button */}
               <button
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
@@ -204,13 +194,11 @@ export default function Navbar() {
                 </svg>
               </button>
 
-              {/* Brand mark */}
               <div className="px-8 pt-10 pb-8 border-b border-background/8">
                 <p className="font-heading text-lg font-semibold text-background tracking-wide">Funto Oluyori</p>
                 <p className="font-body text-[9px] tracking-[0.28em] uppercase text-secondary mt-0.5">Real Estate</p>
               </div>
 
-              {/* Nav links */}
               <div className="flex flex-col px-8 py-8 gap-1 flex-1">
                 {navLinks.map(({ label, to }, i) => (
                   <motion.div
@@ -248,7 +236,6 @@ export default function Navbar() {
                 </motion.div>
               </div>
 
-              {/* Bottom contact info */}
               <div className="px-8 py-6 border-t border-background/8 flex flex-col gap-3">
                 <div className="grid grid-cols-2 gap-4">
                   <div>

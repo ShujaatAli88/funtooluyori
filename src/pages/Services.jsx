@@ -36,7 +36,7 @@ export default function Services() {
                   </svg>
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-primary mb-3">Buying</h3>
-                <p className="font-body text-sm text-primary/55 leading-relaxed">From your first search to handing over the keys, I guide you through every step — negotiations, inspections, and closing — with clarity and confidence.</p>
+                <p className="font-body text-sm text-primary/80 leading-relaxed">From your first search to handing over the keys, I guide you through every step — negotiations, inspections, and closing — with clarity and confidence.</p>
               </div>
             </FadeUp>
             <FadeUp delay={0.2}>
@@ -47,7 +47,7 @@ export default function Services() {
                   </svg>
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-primary mb-3">Selling</h3>
-                <p className="font-body text-sm text-primary/55 leading-relaxed">Strategic pricing, expert staging guidance, and a powerful marketing reach — I position your home to attract qualified buyers and maximize your return.</p>
+                <p className="font-body text-sm text-primary/80 leading-relaxed">Strategic pricing, expert staging guidance, and a powerful marketing reach — I position your home to attract qualified buyers and maximize your return.</p>
               </div>
             </FadeUp>
             <FadeUp delay={0.3}>
@@ -58,7 +58,7 @@ export default function Services() {
                   </svg>
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-primary mb-3">Investing</h3>
-                <p className="font-body text-sm text-primary/55 leading-relaxed">Whether you're building a portfolio or exploring your first rental property, I bring the market data and deal analysis expertise to help you invest wisely.</p>
+                <p className="font-body text-sm text-primary/80 leading-relaxed">Whether you're building a portfolio or exploring your first rental property, I bring the market data and deal analysis expertise to help you invest wisely.</p>
               </div>
             </FadeUp>
             <FadeUp delay={0.4}>
@@ -69,7 +69,7 @@ export default function Services() {
                   </svg>
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-primary mb-3">Renting</h3>
-                <p className="font-body text-sm text-primary/55 leading-relaxed">Finding the right rental shouldn't be stressful. I connect tenants with quality homes that match their lifestyle and budget while simplifying applications and lease negotiations.</p>
+                <p className="font-body text-sm text-primary/80 leading-relaxed">Finding the right rental shouldn't be stressful. I connect tenants with quality homes that match their lifestyle and budget while simplifying applications and lease negotiations.</p>
               </div>
             </FadeUp>
           </div>
