@@ -1,8 +1,11 @@
 import { useRef, useState, useEffect } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import TestimonialCard from '../components/TestimonialCard'
 import ReviewForm from '../components/ReviewForm'
 import { supabase } from '../lib/supabase'
+
+const GRID_INITIAL = 3  // cards shown in grid on first load (+ 1 featured = 4 total)
+const GRID_BATCH   = 3  // cards revealed per "Load More" click
 
 function FadeUp({ children, delay = 0, className = '' }) {
   const ref = useRef(null)
@@ -23,6 +26,7 @@ function FadeUp({ children, delay = 0, className = '' }) {
 export default function Testimonials() {
   const [reviews, setReviews] = useState([])
   const [loading, setLoading] = useState(true)
+  const [visibleCount, setVisibleCount] = useState(GRID_INITIAL)
 
   useEffect(() => {
     async function fetchReviews() {
@@ -150,16 +154,76 @@ export default function Testimonials() {
                 </div>
               </FadeUp>
 
-              {/* Masonry grid for remaining reviews */}
-              {reviews.length > 1 && (
-                <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 sm:gap-8">
-                  {reviews.slice(1).map((review, i) => (
-                    <FadeUp key={review.id} delay={i * 0.06} className="break-inside-avoid mb-6 sm:mb-8">
-                      <TestimonialCard testimonial={review} />
-                    </FadeUp>
-                  ))}
-                </div>
-              )}
+              {/* Masonry grid — progressive reveal */}
+              {reviews.length > 1 && (() => {
+                const gridReviews = reviews.slice(1)
+                const visible = gridReviews.slice(0, visibleCount)
+                const remaining = gridReviews.length - visibleCount
+                const hasMore = remaining > 0
+                const progress = Math.min(visibleCount / gridReviews.length, 1)
+
+                return (
+                  <>
+                    {/* Progress bar + count */}
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="flex-1 h-px bg-accent/60 relative overflow-hidden">
+                        <motion.div
+                          className="absolute left-0 top-0 bottom-0 bg-secondary"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${progress * 100}%` }}
+                          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                        />
+                      </div>
+                      <p className="font-body text-xs text-primary/40 tracking-wide whitespace-nowrap flex-shrink-0">
+                        Showing <span className="text-secondary font-semibold">{Math.min(1 + visibleCount, reviews.length)}</span> of <span className="font-semibold text-primary/60">{reviews.length}</span>
+                      </p>
+                    </div>
+
+                    <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 sm:gap-8">
+                      <AnimatePresence initial={false}>
+                        {visible.map((review, i) => (
+                          <motion.div
+                            key={review.id}
+                            initial={{ opacity: 0, y: 28 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: i < GRID_INITIAL ? i * 0.06 : 0.05, ease: [0.25, 0.1, 0.25, 1] }}
+                            className="break-inside-avoid mb-6 sm:mb-8"
+                          >
+                            <TestimonialCard testimonial={review} />
+                          </motion.div>
+                        ))}
+                      </AnimatePresence>
+                    </div>
+
+                    {/* Load more / collapse */}
+                    <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                      {hasMore ? (
+                        <motion.button
+                          onClick={() => setVisibleCount(c => c + GRID_BATCH)}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-secondary text-secondary font-body text-sm font-semibold tracking-wide hover:bg-secondary hover:text-white transition-all duration-300 focus:outline-none"
+                        >
+                          <svg className="w-4 h-4 group-hover:rotate-180 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                          Show {Math.min(remaining, GRID_BATCH)} More
+                          <span className="font-body text-[10px] tracking-[0.15em] opacity-60">
+                            ({remaining} remaining)
+                          </span>
+                        </motion.button>
+                      ) : visibleCount > GRID_INITIAL && (
+                        <button
+                          onClick={() => setVisibleCount(GRID_INITIAL)}
+                          className="font-body text-xs tracking-[0.2em] uppercase text-primary/40 hover:text-secondary transition-colors duration-300 border-b border-transparent hover:border-secondary/40 pb-0.5"
+                        >
+                          Collapse Reviews
+                        </button>
+                      )}
+                    </div>
+                  </>
+                )
+              })()}
             </>
           ) : (
             <FadeUp>
