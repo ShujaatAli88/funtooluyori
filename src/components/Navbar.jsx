@@ -63,6 +63,16 @@ export default function Navbar() {
               </svg>
               <span className="hidden sm:inline">Office:&nbsp;</span>(240) 737-5000
             </a>
+            <span className="hidden sm:block w-px h-3 bg-white/15" />
+            <Link
+              to="/testimonials#review"
+              className="hidden sm:flex items-center gap-1.5 font-body text-[11px] tracking-[0.1em] text-secondary hover:text-secondary/80 transition-colors duration-300"
+            >
+              <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              Leave a Review
+            </Link>
           </div>
         </div>
 
@@ -225,13 +235,22 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: 24 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.48 }}
-                  className="mt-6"
+                  className="mt-6 flex flex-col gap-3"
                 >
                   <Link
                     to="/contact"
                     className="block w-full text-center px-6 py-3.5 bg-secondary text-white font-body text-sm font-medium tracking-wide hover:bg-secondary/90 transition-all duration-300 min-h-[44px]"
                   >
                     Let's Connect
+                  </Link>
+                  <Link
+                    to="/testimonials#review"
+                    className="flex items-center justify-center gap-2 w-full text-center px-6 py-3 border border-secondary/40 text-secondary font-body text-sm tracking-wide hover:border-secondary hover:bg-secondary/10 transition-all duration-300 min-h-[44px]"
+                  >
+                    <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    Leave a Review
                   </Link>
                 </motion.div>
               </div>

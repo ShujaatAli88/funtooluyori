@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import TestimonialsSection from '../components/TestimonialsSection'
 import { motion, useInView } from 'framer-motion'
 
 function FadeUp({ children, delay = 0 }) {
@@ -75,6 +76,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <TestimonialsSection />
     </main>
   )
 }

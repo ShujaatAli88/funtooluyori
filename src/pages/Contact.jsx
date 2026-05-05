@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import ContactForm from '../components/ContactForm'
+import TestimonialsSection from '../components/TestimonialsSection'
 
 function FadeUp({ children, delay = 0, className = '' }) {
   const ref = useRef(null)
@@ -116,6 +117,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <TestimonialsSection />
 
       {/* Location strip */}
       <section className="py-14 bg-accent/20 border-t border-accent/60">

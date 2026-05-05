@@ -4,10 +4,9 @@ import { motion, useInView } from 'framer-motion'
 import HeroSection from '../components/HeroSection'
 import StatsBar from '../components/StatsBar'
 import ListingCard from '../components/ListingCard'
-import TestimonialCard from '../components/TestimonialCard'
+import TestimonialsSection from '../components/TestimonialsSection'
 import { listings } from '../data/listings'
-import { testimonials } from '../data/testimonials'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 function FadeUp({ children, delay = 0, className = '' }) {
   const ref = useRef(null)
@@ -76,53 +75,6 @@ const blogPosts = [
   },
 ]
 
-function TestimonialsCarousel() {
-  const [current, setCurrent] = useState(0)
-  const featured = testimonials.slice(0, 4)
-
-  useEffect(() => {
-    if (featured.length === 0) return
-    const id = setInterval(() => setCurrent((c) => (c + 1) % featured.length), 5000)
-    return () => clearInterval(id)
-  }, [featured.length])
-
-  if (featured.length === 0) {
-    return (
-      <div className="text-center py-6">
-        <p className="font-accent italic text-accent/60 text-lg leading-relaxed mb-2">
-          Client reviews coming soon — check back here or visit our Google Business profile.
-        </p>
-      </div>
-    )
-  }
-
-  return (
-    <div className="relative overflow-hidden">
-      <div
-        className="flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${current * 100}%)` }}
-      >
-        {featured.map((t) => (
-          <div key={t.id} className="w-full flex-shrink-0 px-1">
-            <TestimonialCard testimonial={t} />
-          </div>
-        ))}
-      </div>
-      <div className="flex justify-center gap-2 mt-6">
-        {featured.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to testimonial ${i + 1}`}
-            className={`w-2 h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary ${
-              current === i ? 'bg-secondary w-6' : 'bg-accent/80 hover:bg-secondary/50'
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
 
 export default function Home() {
   const featuredListings = listings.filter((l) => l.featured)
@@ -160,7 +112,7 @@ export default function Home() {
                 Your Trusted Partner from First Showing to Final Close
               </h2>
               <p className="font-accent italic text-xl text-secondary border-l-2 border-secondary pl-5 mb-6 leading-relaxed">
-                "Every client deserves an advocate who treats their goals as if they were my own."
+                "I believe every client deserves an advocate who is fully invested in their success, treating your goals with the same care and priority as my own."
               </p>
               <p className="font-body text-primary/85 leading-relaxed mb-4">
                 <strong>Why Work With A Keller Williams Agent?</strong><br /><br />
@@ -240,31 +192,7 @@ export default function Home() {
 
       <StatsBar />
 
-      {/* Testimonials Carousel */}
-      <section className="py-20 sm:py-28 bg-primary">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8">
-          <FadeUp className="text-center mb-12">
-            <p className="font-body text-xs tracking-[0.25em] uppercase text-secondary mb-3">Client Stories</p>
-            <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-background">
-              What Clients Are Saying
-            </h2>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <TestimonialsCarousel />
-          </FadeUp>
-          <FadeUp delay={0.2} className="text-center mt-10">
-            <Link
-              to="/testimonials"
-              className="inline-flex items-center gap-2 font-body text-sm text-secondary hover:gap-4 transition-all duration-300 tracking-wide group focus:outline-none focus:underline"
-            >
-              Read All Reviews
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </FadeUp>
-        </div>
-      </section>
+      <TestimonialsSection />
 
       {/* Blog / News Section */}
       <section className="py-20 sm:py-28 bg-background">

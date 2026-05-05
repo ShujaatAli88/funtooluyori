@@ -1,6 +1,7 @@
 import { useRef, useState, useMemo } from 'react'
 import { motion, useInView } from 'framer-motion'
 import ListingCard from '../components/ListingCard'
+import TestimonialsSection from '../components/TestimonialsSection'
 import { listings } from '../data/listings'
 
 function FadeUp({ children, delay = 0, className = '' }) {
@@ -211,6 +212,8 @@ export default function Listings() {
           )}
         </div>
       </section>
+
+      <TestimonialsSection />
 
       {/* Bottom CTA */}
       <section className="py-16 sm:py-20 bg-accent/20 text-center border-t border-accent/60">

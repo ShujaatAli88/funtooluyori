@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
+import TestimonialsSection from '../components/TestimonialsSection'
 
 function FadeUp({ children, delay = 0 }) {
   const ref = useRef(null)
@@ -64,6 +65,8 @@ export default function Blog() {
           </FadeUp>
         </div>
       </section>
+
+      <TestimonialsSection />
     </main>
   )
 }

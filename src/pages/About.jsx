@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
+import TestimonialsSection from '../components/TestimonialsSection'
 
 function FadeUp({ children, delay = 0, className = '' }) {
   const ref = useRef(null)
@@ -109,9 +110,9 @@ export default function About() {
                   Meet Funto Oluyori
                 </h2>
                 <p className="font-body text-primary/85 leading-relaxed mb-4">
-                  As a dedicated real estate professional licensed since 2023, I specialize in helping buyers, sellers, and investors navigate the market with confidence and clarity. My approach is rooted in providing strategic guidance, clear communication, and a results-driven mindset tailored to each client’s unique goals.
-                  Whether assisting first-time homebuyers, guiding sellers to maximize their property’s value, or working with investors to identify profitable opportunities, I bring a strong understanding of market trends and negotiation strategies to every transaction. I am committed to delivering a seamless experience while protecting my clients’ best interests at every step.
-                  My mission is simple—to exceed expectations by providing exceptional service, transparency, and trusted expertise in every real estate journey.
+                  As a dedicated real estate professional licensed since 2023, Funto Oluyori specializes in helping buyers, sellers, and investors navigate the Maryland market with confidence and clarity. Her approach is rooted in strategic guidance, clear communication, and a results-driven mindset tailored to each client’s unique goals.
+                  Whether assisting first-time homebuyers, guiding sellers to maximize their property’s value, or working with investors to identify profitable opportunities, Funto brings a strong understanding of market trends and negotiation strategies to every transaction. She is committed to delivering a seamless experience while protecting her clients’ best interests at every step.
+                  Her mission is simple to exceed expectations by providing exceptional service, transparency, and trusted expertise in every real estate journey.
                 </p>
               </FadeUp>
 
@@ -214,6 +215,8 @@ export default function About() {
           </FadeUp>
         </div>
       </section>
+
+      <TestimonialsSection />
 
       {/* CTA */}
       <section className="py-20 sm:py-24 bg-background text-center">
