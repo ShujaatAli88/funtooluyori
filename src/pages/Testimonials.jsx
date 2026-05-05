@@ -179,7 +179,7 @@ export default function Testimonials() {
                       </p>
                     </div>
 
-                    <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 sm:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                       <AnimatePresence initial={false}>
                         {visible.map((review, i) => (
                           <motion.div
@@ -187,7 +187,6 @@ export default function Testimonials() {
                             initial={{ opacity: 0, y: 28 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: i < GRID_INITIAL ? i * 0.06 : 0.05, ease: [0.25, 0.1, 0.25, 1] }}
-                            className="break-inside-avoid mb-6 sm:mb-8"
                           >
                             <TestimonialCard testimonial={review} />
                           </motion.div>
