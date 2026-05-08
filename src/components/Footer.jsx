@@ -5,7 +5,7 @@ const navLinks = [
   { label: 'About', to: '/about' },
   { label: 'Listings', to: '/listings' },
   { label: 'Testimonials', to: '/testimonials' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Contact Me', to: '/contact' },
 ]
 
 const credentials = [
@@ -163,6 +163,7 @@ export default function Footer() {
               <li>
                 <p className="text-[9px] tracking-[0.25em] uppercase text-secondary/55 mb-1">Brokerage</p>
                 <p className="text-background/45 leading-relaxed">
+                  Keller Williams Preferred Properties<br />
                   1441 McCormick DR, STE 1020<br />
                   Upper Marlboro, MD 20774
                 </p>
