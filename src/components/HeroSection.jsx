@@ -80,7 +80,7 @@ export default function HeroSection() {
         </AnimatePresence>
 
         {/* Left-heavy gradient — keeps right side vibrant and visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/92 via-primary/55 lg:via-primary/35 to-primary/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/65 lg:via-primary/45 to-primary/10" />
         {/* Bottom gradient — mobile text legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 sm:via-primary/20 to-transparent" />
         {/* Subtle top vignette */}
@@ -93,28 +93,6 @@ export default function HeroSection() {
         aria-hidden="true"
       />
 
-      {/* ─── Ghosted slide number — top right decorative ─── */}
-      <div
-        className="absolute top-28 sm:top-32 right-5 sm:right-10 z-10 text-right pointer-events-none select-none"
-        aria-hidden="true"
-      >
-        <AnimatePresence mode="wait">
-          <motion.span
-            key={current}
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 12 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="font-heading leading-none block text-white/[0.07]"
-            style={{ fontSize: 'clamp(4rem, 12vw, 9rem)', fontWeight: 700 }}
-          >
-            {pad(current + 1)}
-          </motion.span>
-        </AnimatePresence>
-        <span className="font-body text-[10px] tracking-[0.35em] text-white/20 uppercase">
-          / {pad(slides.length)}
-        </span>
-      </div>
 
       {/* ─── Navigation arrows ─── */}
       <button
@@ -161,7 +139,7 @@ export default function HeroSection() {
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-                className="font-body text-xs sm:text-sm tracking-[0.22em] uppercase text-white/45 leading-none mb-2 sm:mb-3"
+                className="font-body text-xs sm:text-sm tracking-[0.22em] uppercase text-white/80 leading-none mb-2 sm:mb-3"
               >
                 Finding You
               </motion.p>
@@ -175,7 +153,7 @@ export default function HeroSection() {
                 className="font-heading font-extrabold text-white leading-[0.88] tracking-tight"
                 style={{
                   fontSize: 'clamp(3.25rem, 5.5vw, 4rem)',
-                  textShadow: '0 2px 20px rgba(0,0,0,0.7)',
+                  textShadow: '0 2px 28px rgba(0,0,0,0.9)',
                 }}
               >
                 The Home
@@ -190,7 +168,7 @@ export default function HeroSection() {
                 className="font-accent italic text-secondary leading-tight font-bold"
                 style={{
                   fontSize: 'clamp(2.5rem, 4.5vw, 3.25rem)',
-                  textShadow: '0 2px 16px rgba(0,0,0,0.6)',
+                  textShadow: '0 2px 20px rgba(0,0,0,0.85)',
                 }}
               >
                 You Deserve.
@@ -203,8 +181,8 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.78 }}
-            className="font-body text-white/80 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-xs sm:max-w-sm"
-            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.6)' }}
+            className="font-body text-white text-base sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-xs sm:max-w-sm"
+            style={{ textShadow: '0 1px 12px rgba(0,0,0,0.85)' }}
           >
             Trusted advisor. Relentless advocate. Results you can count on.
           </motion.p>
@@ -213,16 +191,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ─── Scroll cue ─── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.4 }}
-        className="absolute left-5 sm:left-12 lg:left-20 bottom-20 sm:bottom-24 z-20 hidden sm:flex items-center gap-3"
-      >
-        <div className="w-px h-7 bg-secondary/45" />
-        <span className="font-body text-[9px] tracking-[0.32em] uppercase text-white/28">Scroll to explore</span>
-      </motion.div>
 
       {/* ─── Bottom bar: progress + caption + dots ─── */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
