@@ -69,7 +69,7 @@ function StarPicker({ value, onChange }) {
 
 const inputCls = 'w-full px-4 py-3.5 bg-white border-2 border-accent/60 font-body text-sm text-primary placeholder-primary/25 focus:outline-none focus:border-secondary transition-all duration-300 rounded-none'
 
-export default function ReviewForm() {
+export default function ReviewForm({ onSuccess }) {
   const [form, setForm] = useState({ name: '', city: '', type: [], stars: 0, quote: '' })
   const [status, setStatus] = useState('idle')
 
@@ -91,6 +91,7 @@ export default function ReviewForm() {
     } else {
       setStatus('success')
       setForm({ name: '', city: '', type: [], stars: 0, quote: '' })
+      onSuccess?.()  // trigger parent to re-fetch reviews
     }
   }
 

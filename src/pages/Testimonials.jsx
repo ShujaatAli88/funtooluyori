@@ -379,7 +379,7 @@ export default function Testimonials() {
                     <h3 className="font-heading text-2xl font-semibold text-primary">Leave a Review</h3>
                   </div>
                   <div className="p-7 sm:p-8">
-                    <ReviewForm />
+                    <ReviewForm onSuccess={fetchReviews} />
                   </div>
                 </div>
               </div>
