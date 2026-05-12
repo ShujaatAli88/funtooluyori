@@ -146,12 +146,12 @@ export default function ReviewForm({ onSuccess }) {
         </div>
         <div className="group">
           <label className="font-body text-[10px] tracking-[0.22em] uppercase text-primary/50 mb-2 block font-semibold group-focus-within:text-secondary transition-colors duration-300">
-            City <span className="text-secondary">*</span>
+            City Served <span className="text-secondary">*</span>
           </label>
           <input
             name="city" type="text" required
             value={form.city} onChange={handleChange}
-            placeholder="Upper Marlboro, MD"
+            placeholder="e.g. Upper Marlboro, MD"
             className={inputCls}
           />
         </div>
