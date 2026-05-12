@@ -70,7 +70,7 @@ function StarPicker({ value, onChange }) {
 const inputCls = 'w-full px-4 py-3.5 bg-white border-2 border-accent/60 font-body text-sm text-primary placeholder-primary/25 focus:outline-none focus:border-secondary transition-all duration-300 rounded-none'
 
 export default function ReviewForm() {
-  const [form, setForm] = useState({ name: '', city: '', type: '', stars: 0, quote: '' })
+  const [form, setForm] = useState({ name: '', city: '', type: [], stars: 0, quote: '' })
   const [status, setStatus] = useState('idle')
 
   const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
@@ -82,7 +82,7 @@ export default function ReviewForm() {
     const { error } = await supabase.from('testimonials').insert([{
       name: form.name.trim(),
       city: form.city.trim(),
-      type: form.type,
+      type: form.type.join(' & '),
       stars: form.stars,
       quote: form.quote.trim(),
     }])
@@ -90,11 +90,11 @@ export default function ReviewForm() {
       setStatus('error')
     } else {
       setStatus('success')
-      setForm({ name: '', city: '', type: '', stars: 0, quote: '' })
+      setForm({ name: '', city: '', type: [], stars: 0, quote: '' })
     }
   }
 
-  const isValid = form.name && form.city && form.type && form.stars > 0 && form.quote.trim().length > 0
+  const isValid = form.name && form.city && form.type.length > 0 && form.stars > 0 && form.quote.trim().length > 0
 
   if (status === 'success') {
     return (
@@ -158,29 +158,26 @@ export default function ReviewForm() {
 
       {/* Type */}
       <div>
-        <label className="font-body text-[10px] tracking-[0.22em] uppercase text-primary/50 mb-3 block font-semibold">
-          I worked with Funto as a <span className="text-secondary">*</span>
+        <label className="font-body text-[10px] tracking-[0.22em] uppercase text-primary/50 mb-1 block font-semibold">
+          I worked with Funto as <span className="text-secondary">*</span>
         </label>
+        <p className="font-body text-[10px] text-primary/35 italic mb-3">Select all that apply</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {typeOptions.map((opt) => (
             <motion.button
               key={opt}
               type="button"
-              onClick={() => setForm((f) => ({ ...f, type: opt }))}
+              onClick={() => setForm((f) => ({
+                ...f,
+                type: f.type.includes(opt) ? f.type.filter(t => t !== opt) : [...f.type, opt]
+              }))}
               whileTap={{ scale: 0.97 }}
-              className={`relative py-3 font-body text-sm font-medium border-2 transition-all duration-250 focus:outline-none overflow-hidden ${
-                form.type === opt
+              className={`py-3 font-body text-sm font-medium border-2 transition-all duration-250 focus:outline-none ${
+                form.type.includes(opt)
                   ? 'bg-secondary text-white border-secondary shadow-md shadow-secondary/20'
                   : 'bg-white text-primary/60 border-accent/60 hover:border-secondary/50 hover:text-secondary'
               }`}
             >
-              {form.type === opt && (
-                <motion.span
-                  layoutId="typePill"
-                  className="absolute inset-0 bg-secondary"
-                  style={{ zIndex: -1 }}
-                />
-              )}
               {opt}
             </motion.button>
           ))}
