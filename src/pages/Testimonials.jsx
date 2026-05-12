@@ -1,51 +1,46 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import TestimonialCard from '../components/TestimonialCard'
 import ReviewForm from '../components/ReviewForm'
 import { supabase } from '../lib/supabase'
 
 const typeOptions = ['Buyer', 'Seller', 'Investor', 'Renter']
-
 const StarPath = 'M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z'
 
 const slideVariants = {
-  enter: (dir) => ({ opacity: 0, y: dir > 0 ? 30 : -30 }),
-  center: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.1, 0.25, 1] } },
-  exit:  (dir) => ({ opacity: 0, y: dir > 0 ? -30 : 30, transition: { duration: 0.3, ease: 'easeIn' } }),
+  enter: (dir) => ({ opacity: 0, x: dir > 0 ? 60 : -60 }),
+  center: { opacity: 1, x: 0, transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] } },
+  exit:   (dir) => ({ opacity: 0, x: dir > 0 ? -60 : 60, transition: { duration: 0.28, ease: 'easeIn' } }),
 }
 
 function FadeUp({ children, delay = 0, className = '' }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
-    <motion.div
-      ref={ref}
+    <motion.div ref={ref}
       initial={{ opacity: 0, y: 35 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.65, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
-    >
-      {children}
-    </motion.div>
+    >{children}</motion.div>
   )
 }
 
 export default function Testimonials() {
-  const [reviews, setReviews]       = useState([])
-  const [loading, setLoading]       = useState(true)
-  const [current, setCurrent]       = useState(0)
-  const [paused, setPaused]         = useState(false)
-  const [direction, setDirection]   = useState(1)
+  const [reviews, setReviews]     = useState([])
+  const [loading, setLoading]     = useState(true)
+  const [current, setCurrent]     = useState(0)
+  const [paused, setPaused]       = useState(false)
+  const [direction, setDirection] = useState(1)
 
-  const [isAdmin, setIsAdmin]           = useState(false)
-  const [editingReview, setEditingReview] = useState(null)
-  const [editForm, setEditForm]         = useState(null)
-  const [editStatus, setEditStatus]     = useState('idle')
+  const [isAdmin, setIsAdmin]               = useState(false)
+  const [editingReview, setEditingReview]   = useState(null)
+  const [editForm, setEditForm]             = useState(null)
+  const [editStatus, setEditStatus]         = useState('idle')
 
   const fetchReviews = useCallback(async () => {
     const { data } = await supabase
-      .from('testimonials')
-      .select('*')
-      .order('created_at', { ascending: false })
+      .from('testimonials').select('*').order('created_at', { ascending: false })
     setReviews(data || [])
     setLoading(false)
   }, [])
@@ -55,6 +50,7 @@ export default function Testimonials() {
     setIsAdmin(sessionStorage.getItem('adminAuth') === 'true')
   }, [fetchReviews])
 
+  // Auto-rotate every 3s, pause when hovered or modal open
   useEffect(() => {
     if (paused || reviews.length <= 1) return
     const t = setInterval(() => {
@@ -69,10 +65,9 @@ export default function Testimonials() {
     setCurrent(c => (c + dir + reviews.length) % reviews.length)
   }
 
-  const openEdit = (review) => {
-    const typeArr = review.type ? review.type.split(' & ') : []
-    setEditingReview(review)
-    setEditForm({ name: review.name, city: review.city, type: typeArr, stars: review.stars, quote: review.quote })
+  const openEdit  = (r) => {
+    setEditingReview(r)
+    setEditForm({ name: r.name, city: r.city, type: r.type ? r.type.split(' & ') : [], stars: r.stars, quote: r.quote })
     setEditStatus('idle')
   }
   const closeEdit = () => { setEditingReview(null); setEditForm(null); setEditStatus('idle') }
@@ -100,7 +95,7 @@ export default function Testimonials() {
       {/* ── Header ── */}
       <section className="py-20 sm:py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80" alt="" aria-hidden="true" className="w-full h-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80" alt="" aria-hidden className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-transparent to-primary/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center">
@@ -119,9 +114,9 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* ── Carousel ── */}
-      <section className="py-20 sm:py-28 bg-background">
-        <div className="max-w-4xl mx-auto px-5 sm:px-8">
+      {/* ── Single large card carousel ── */}
+      <section className="py-20 sm:py-28 bg-primary">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8">
 
           {loading ? (
             <div className="flex justify-center py-16">
@@ -131,12 +126,12 @@ export default function Testimonials() {
           ) : reviews.length > 0 ? (
             <>
               {/* Title row */}
-              <FadeUp className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+              <FadeUp className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
                 <div>
                   <p className="font-body text-xs tracking-[0.28em] uppercase text-secondary mb-2">
                     {reviews.length} {reviews.length === 1 ? 'Review' : 'Reviews'}
                   </p>
-                  <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-primary">
+                  <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-background">
                     Client Experiences
                   </h2>
                 </div>
@@ -156,46 +151,14 @@ export default function Testimonials() {
                 </div>
               </FadeUp>
 
-              {/* Carousel card */}
+              {/* Card + navigation */}
               <FadeUp>
                 <div
-                  className="relative overflow-hidden shadow-2xl"
                   onMouseEnter={() => setPaused(true)}
                   onMouseLeave={() => setPaused(false)}
                 >
-                  {/* Rich layered background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1C1C1C] via-[#141414] to-[#0e0e0e]" />
-                  <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-secondary/8 blur-3xl pointer-events-none" />
-                  <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-secondary/5 blur-2xl pointer-events-none" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full
-                    bg-[radial-gradient(ellipse_at_center,rgba(184,150,12,0.04)_0%,transparent_70%)] pointer-events-none" />
-
-                  {/* Top gold shimmer */}
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary to-transparent z-10" />
-                  {/* Bottom gold shimmer */}
-                  <div className="absolute bottom-16 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent z-10" />
-
-                  {/* Giant watermark */}
-                  <div className="absolute top-0 left-4 sm:left-10 font-heading text-[220px] sm:text-[280px] leading-none
-                    text-secondary/[0.05] select-none pointer-events-none -translate-y-6">
-                    "
-                  </div>
-
-                  {/* Admin edit */}
-                  {isAdmin && (
-                    <button onClick={() => openEdit(review)} title="Edit this review"
-                      className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5
-                        bg-secondary/20 hover:bg-secondary/40 text-secondary font-body text-[10px]
-                        tracking-[0.15em] uppercase transition-colors border border-secondary/20">
-                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                      </svg>
-                      Edit
-                    </button>
-                  )}
-
-                  {/* Content — centered spotlight */}
-                  <div className="relative px-8 sm:px-16 lg:px-24 py-16 sm:py-20 flex flex-col items-center text-center overflow-hidden">
+                  {/* Animated card */}
+                  <div className="relative">
                     <AnimatePresence mode="wait" custom={direction}>
                       <motion.div
                         key={current}
@@ -204,66 +167,50 @@ export default function Testimonials() {
                         initial="enter"
                         animate="center"
                         exit="exit"
-                        className="w-full flex flex-col items-center"
                       >
-                        {/* Stars */}
-                        <div className="flex gap-1.5 mb-7">
-                          {[1,2,3,4,5].map(s => (
-                            <svg key={s} viewBox="0 0 20 20" className={`w-5 h-5 ${s <= review.stars ? 'fill-secondary' : 'fill-white/10'}`}>
-                              <path d={StarPath} />
-                            </svg>
-                          ))}
-                        </div>
-
-                        {/* Quote */}
-                        <blockquote className="font-heading italic text-xl sm:text-2xl lg:text-[1.75rem]
-                          text-background/90 leading-relaxed max-w-2xl mb-10
-                          [text-wrap:balance]">
-                          "{review.quote}"
-                        </blockquote>
-
-                        {/* Vertical line + author */}
-                        <div className="flex flex-col items-center gap-3">
-                          <div className="w-px h-10 bg-gradient-to-b from-secondary/60 to-transparent" />
-                          <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-full flex-shrink-0
-                              bg-gradient-to-br from-secondary/30 to-secondary/10
-                              border border-secondary/40
-                              flex items-center justify-center
-                              shadow-[0_0_20px_rgba(184,150,12,0.25)]">
-                              <span className="font-heading text-sm font-bold text-secondary">
-                                {review.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()}
-                              </span>
-                            </div>
-                            <div className="text-left">
-                              <p className="font-body text-sm font-semibold text-background leading-tight">{review.name}</p>
-                              <p className="font-body text-xs text-background/40 mt-0.5">{review.city} · {review.type}</p>
-                            </div>
-                          </div>
-                        </div>
+                        <TestimonialCard
+                          testimonial={review}
+                          large
+                          onModalChange={setPaused}
+                        />
                       </motion.div>
                     </AnimatePresence>
+
+                    {/* Admin edit button overlay */}
+                    {isAdmin && (
+                      <button onClick={() => openEdit(review)}
+                        className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5
+                          bg-secondary/20 hover:bg-secondary/40 text-secondary font-body
+                          text-[10px] tracking-[0.15em] uppercase transition-colors border border-secondary/20">
+                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                        Edit
+                      </button>
+                    )}
                   </div>
 
-                  {/* Navigation bar */}
-                  <div className="relative flex items-center justify-between px-8 sm:px-16 py-4 bg-black/30">
+                  {/* Navigation */}
+                  <div className="flex items-center justify-between mt-5 px-1">
+
                     {/* Prev / Next */}
                     <div className="flex items-center gap-2">
-                      {[{ dir: -1, icon: 'M15 19l-7-7 7-7' }, { dir: 1, icon: 'M9 5l7 7-7 7' }].map(({ dir, icon }) => (
-                        <button key={dir} onClick={() => go(dir)} aria-label={dir === -1 ? 'Previous' : 'Next'}
+                      {[{ dir: -1, d: 'M15 19l-7-7 7-7' }, { dir: 1, d: 'M9 5l7 7-7 7' }].map(({ dir, d }) => (
+                        <button key={dir} onClick={() => go(dir)}
+                          aria-label={dir === -1 ? 'Previous' : 'Next'}
                           className="w-9 h-9 flex items-center justify-center
                             border border-white/10 text-white/30
                             hover:border-secondary/60 hover:text-secondary
                             transition-all duration-300">
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
+                            <path strokeLinecap="round" strokeLinejoin="round" d={d} />
                           </svg>
                         </button>
                       ))}
                     </div>
 
-                    {/* Dot indicators */}
-                    <div className="flex items-center gap-1.5 flex-wrap justify-center max-w-[200px]">
+                    {/* Dots */}
+                    <div className="flex items-center gap-1.5 flex-wrap justify-center max-w-[220px]">
                       {reviews.map((_, i) => (
                         <button key={i} aria-label={`Review ${i + 1}`}
                           onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i) }}
@@ -277,7 +224,7 @@ export default function Testimonials() {
                     </div>
 
                     {/* Counter */}
-                    <p className="font-body text-xs text-white/25 tabular-nums flex-shrink-0">
+                    <p className="font-body text-xs text-white/25 tabular-nums">
                       {String(current + 1).padStart(2, '0')} / {String(reviews.length).padStart(2, '0')}
                     </p>
                   </div>
@@ -288,13 +235,8 @@ export default function Testimonials() {
           ) : (
             <FadeUp>
               <div className="max-w-lg mx-auto text-center py-12">
-                <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-7 h-7 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                  </svg>
-                </div>
-                <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-primary mb-3">Be the First to Review</h2>
-                <p className="font-body text-primary/70 leading-relaxed">Share your experience and help others find their perfect home with Funto.</p>
+                <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-background mb-3">Be the First to Review</h2>
+                <p className="font-body text-background/50 leading-relaxed">Share your experience and help others find their perfect home with Funto.</p>
               </div>
             </FadeUp>
           )}
@@ -305,19 +247,18 @@ export default function Testimonials() {
       <section id="review" className="relative py-20 sm:py-28 bg-primary overflow-hidden">
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-secondary/8 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-secondary/5 blur-2xl pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-secondary/3 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
             <FadeUp>
               <div className="text-center lg:text-left">
-                <div className="hidden lg:block font-heading text-[160px] leading-none text-secondary/10 select-none -mb-12" aria-hidden="true">"</div>
+                <div className="hidden lg:block font-heading text-[160px] leading-none text-secondary/10 select-none -mb-12" aria-hidden>"</div>
                 <p className="font-body text-xs tracking-[0.3em] uppercase text-secondary mb-5">Share Your Story</p>
                 <h2 className="font-heading text-4xl sm:text-5xl font-semibold text-background leading-tight mb-6">
                   Your Words<br /><span className="text-secondary">Change Lives.</span>
                 </h2>
-                <p className="font-body text-background/55 leading-relaxed mb-8 max-w-md mx-auto lg:mx-0 text-base">
+                <p className="font-body text-background/55 leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
                   Every review you leave gives a family the confidence to take the most important financial step of their lives.
                 </p>
                 <div className="flex flex-col gap-3 max-w-sm mx-auto lg:mx-0">
