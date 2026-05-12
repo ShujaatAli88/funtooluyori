@@ -74,13 +74,13 @@ function MultiCarousel({ items }) {
       {/* Track */}
       <div
         ref={trackRef}
-        className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
+        className="flex items-stretch gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex-none w-[85%] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] snap-start"
+            className="flex-none w-[85%] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] snap-start flex flex-col"
           >
             <TestimonialCard testimonial={item} />
           </div>
