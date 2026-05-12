@@ -162,27 +162,53 @@ export default function ReviewForm({ onSuccess }) {
         <label className="font-body text-[10px] tracking-[0.22em] uppercase text-primary/50 mb-1 block font-semibold">
           I worked with Funto as <span className="text-secondary">*</span>
         </label>
-        <p className="font-body text-[10px] text-primary/35 italic mb-3">Select all that apply</p>
+        <p className="font-body text-[10px] text-primary/40 italic mb-3">
+          You can select more than one — pick all that apply
+        </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {typeOptions.map((opt) => (
-            <motion.button
-              key={opt}
-              type="button"
-              onClick={() => setForm((f) => ({
-                ...f,
-                type: f.type.includes(opt) ? f.type.filter(t => t !== opt) : [...f.type, opt]
-              }))}
-              whileTap={{ scale: 0.97 }}
-              className={`py-3 font-body text-sm font-medium border-2 transition-all duration-250 focus:outline-none ${
-                form.type.includes(opt)
-                  ? 'bg-secondary text-white border-secondary shadow-md shadow-secondary/20'
-                  : 'bg-white text-primary/60 border-accent/60 hover:border-secondary/50 hover:text-secondary'
-              }`}
-            >
-              {opt}
-            </motion.button>
-          ))}
+          {typeOptions.map((opt) => {
+            const selected = form.type.includes(opt)
+            return (
+              <motion.button
+                key={opt}
+                type="button"
+                onClick={() => setForm((f) => ({
+                  ...f,
+                  type: f.type.includes(opt) ? f.type.filter(t => t !== opt) : [...f.type, opt]
+                }))}
+                whileTap={{ scale: 0.96 }}
+                className={`relative py-3 px-2 font-body text-sm font-medium border-2 transition-all duration-200 focus:outline-none flex items-center justify-center gap-1.5 ${
+                  selected
+                    ? 'bg-secondary text-white border-secondary shadow-md shadow-secondary/20'
+                    : 'bg-white text-primary/60 border-accent/60 hover:border-secondary/50 hover:text-secondary'
+                }`}
+              >
+                {/* Checkmark when selected */}
+                {selected && (
+                  <motion.svg
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="w-3.5 h-3.5 flex-shrink-0"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </motion.svg>
+                )}
+                {opt}
+              </motion.button>
+            )
+          })}
         </div>
+        {/* Show selected summary */}
+        {form.type.length > 0 && (
+          <motion.p
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-2 font-body text-[11px] text-secondary"
+          >
+            Selected: {form.type.join(' & ')}
+          </motion.p>
+        )}
       </div>
 
       {/* Stars */}
