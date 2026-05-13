@@ -92,7 +92,7 @@ export default function Home() {
                 <div className="aspect-[3/4] overflow-hidden">
                   <img
                     src="/funto_profile_image.jpg"
-                    alt="Funto Oluyori — Real Estate Agent"
+                    alt="Funto Oluyori — Real Estate Professional"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -115,11 +115,11 @@ export default function Home() {
                 "I believe every client deserves an advocate who is fully invested in their success, treating your goals with the same care and priority as my own."
               </p>
               <p className="font-body text-primary/85 leading-relaxed mb-4">
-                <strong>Why Work With A Keller Williams Agent?</strong><br /><br />
-                Looking to sell your home? As a real estate associate of Keller Williams Realty, you will now have access to over 170,000 associates across the country to help you sell your property. With our technology, we are leading the way in how homes are sold and purchased through online marketing. Through our KWLS, your listing will display on top name sites like Zillow and Trulia to get you the most brand exposure to your home. 
-                Looking to purchase a home? With our KW Technology and advanced websites, searching for properties that are active on the MLS is a breeze. Now you can search 24/7, save properties to your profile to view later and schedule showings with me so you can see these properties in person. My job is to make the real estate buying process that much simpler and as a real estate associate of Keller Williams Realty, we are doing just that. 
+                <strong>Why Work With A Keller Williams Real Estate Professional?</strong><br /><br />
+                Looking to sell your home? As a real estate associate of Keller Williams Realty, you will now have access to over 170,000 associates across the country to help you sell your property. With our technology, we are leading the way in how homes are sold and purchased through online marketing. Through our KWLS, your listing will display on top name sites like Zillow and Trulia to get you the most brand exposure to your home.
+                Looking to purchase a home? With our KW Technology and advanced websites, searching for properties that are active on the MLS is a breeze. Now you can search 24/7, save properties to your profile to view later and schedule showings with me so you can see these properties in person. My job is to make the real estate buying process that much simpler and as a real estate associate of Keller Williams Realty, we are doing just that.
 
-                Our company prides ourselves in staying on the cutting edge of technology and if you select me as your real estate agent, you will receive all of this and more. You could never find a more dedicated, energetic, or focused agent to represent you. Please give me a call for a no obligation assessment of your needs!
+                Our company prides ourselves in staying on the cutting edge of technology and if you select me as your real estate professional, you will receive all of this and more. You could never find a more dedicated, energetic, or focused real estate professional to represent you. Please give me a call for a no obligation assessment of your needs!
               </p>
               <Link
                 to="/about"

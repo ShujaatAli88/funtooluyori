@@ -54,16 +54,6 @@ export default function Navbar() {
               <span className="hidden sm:inline">Direct:&nbsp;</span>(980) 800-4892
             </a>
             <span className="hidden sm:block w-px h-3 bg-white/15" />
-            <a
-              href="tel:+12407375000"
-              className="font-body text-[11px] tracking-[0.1em] text-white/50 hover:text-secondary transition-colors duration-300 flex items-center gap-1.5"
-            >
-              <svg className="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-              </svg>
-              <span className="hidden sm:inline">Office:&nbsp;</span>(240) 737-5000
-            </a>
-            <span className="hidden sm:block w-px h-3 bg-white/15" />
             <Link
               to="/testimonials#review"
               className="hidden sm:flex items-center gap-1.5 font-body text-[11px] tracking-[0.1em] text-secondary hover:text-secondary/80 transition-colors duration-300"
@@ -261,12 +251,6 @@ export default function Navbar() {
                     <p className="font-body text-[9px] tracking-[0.25em] uppercase text-secondary mb-1">Direct</p>
                     <a href="tel:+19808004892" className="font-body text-sm text-background/55 hover:text-secondary transition-colors">
                       (980) 800-4892
-                    </a>
-                  </div>
-                  <div>
-                    <p className="font-body text-[9px] tracking-[0.25em] uppercase text-secondary mb-1">Office</p>
-                    <a href="tel:+12407375000" className="font-body text-sm text-background/55 hover:text-secondary transition-colors">
-                      (240) 737-5000
                     </a>
                   </div>
                 </div>

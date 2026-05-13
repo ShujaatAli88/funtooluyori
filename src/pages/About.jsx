@@ -89,7 +89,7 @@ export default function About() {
                 <div className="aspect-[3/4] overflow-hidden">
                   <img
                     src="/funto_profile_image.jpg"
-                    alt="Funto Oluyori, Real Estate Agent"
+                    alt="Funto Oluyori, Real Estate Professional"
                     className="w-full h-full object-cover"
                   />
                 </div>

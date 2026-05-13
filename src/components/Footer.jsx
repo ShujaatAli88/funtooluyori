@@ -149,12 +149,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <p className="text-[9px] tracking-[0.25em] uppercase text-secondary/55 mb-1">Office</p>
-                <a href="tel:+12407375000" className="text-background/45 hover:text-secondary transition-colors duration-300">
-                  (240) 737-5000
-                </a>
-              </li>
-              <li>
                 <p className="text-[9px] tracking-[0.25em] uppercase text-secondary/55 mb-1">Email</p>
                 <a href="mailto:funto@kw.com" className="text-background/45 hover:text-secondary transition-colors duration-300">
                   funto@kw.com
