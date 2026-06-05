@@ -180,5 +180,19 @@ export const listings = [
     image: 'https://photos.zillowstatic.com/fp/dd97afb4f9f7243a209de721363e223e-cc_ft_768.webp',
     featured: false,
     detailUrl: 'https://www.zillow.com/homedetails/11-Brooks-Nolen-Way-Owings-Mills-MD-21117/415875701_zpid/'
-}
+},
+{
+    id: 16,
+    address: '2500 W Franklin',
+    city: 'Baltimore MD 21223',
+    price: '$330,000',
+    beds: 5,
+    baths: 4,
+    sqft: '1,720',
+    type: 'Townhouse',
+    status: 'For Sale',
+    image: 'https://photos.zillowstatic.com/fp/3c2efd6e905b9bc56fd0a78d93115298-cc_ft_384.webp',
+    featured: true,
+    detailUrl: 'https://www.zillow.com/homedetails/2500-W-Franklin-St-Baltimore-MD-21223/90009866_zpid/',
+  }
 ]
