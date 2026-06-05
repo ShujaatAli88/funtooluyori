@@ -83,7 +83,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center leading-none group h-full">
               <img
-                src="/nav_logo.png"
+                src="/new_logo_funto.png"
                 alt="Funto Oluyori Real Estate Logo"
                 className="h-20 sm:h-24 w-auto object-contain group-hover:scale-[1.03] transition-all duration-500"
               />
