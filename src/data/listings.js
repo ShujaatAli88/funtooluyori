@@ -67,7 +67,7 @@ export const listings = [
     status: 'Lease',
     image: 'https://photos.zillowstatic.com/fp/fd67fa8374f266dd078aaa0b0fc75e49-cc_ft_768.webp',
     featured: false,
-    detailUrl: 'https://www.zillow.com/homedetails/4-Axios-Way-Rosedale-MD-21237/2063222207_zpid/'
+    detailUrl: 'https://www.nestfully.com/rentals/4-Axios-Way-Rosedale-MD-21237-418962002'
 },
 {
     id: 15,
@@ -81,7 +81,7 @@ export const listings = [
     status: 'Lease',
     image: 'https://photos.zillowstatic.com/fp/dd97afb4f9f7243a209de721363e223e-cc_ft_768.webp',
     featured: false,
-    detailUrl: 'https://www.zillow.com/homedetails/11-Brooks-Nolen-Way-Owings-Mills-MD-21117/415875701_zpid/'
+    detailUrl: 'https://www.nestfully.com/rentals/11-Brooks-Nolen-Way-Owings-Mills-MD-21117-421894821'
 },
 {
     id: 16,
