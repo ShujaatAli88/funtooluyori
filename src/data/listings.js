@@ -3,7 +3,7 @@ export const listings = [
     id: 1,
     address: '1017 Flester Lane',
     city: 'Laurel, MD 20707',
-    price: '$565,000',
+    price: '$545,000',
     beds: 4,
     baths: 4,
     sqft: '2,405',
@@ -95,6 +95,6 @@ export const listings = [
     status: 'For Sale',
     image: 'https://photos.zillowstatic.com/fp/3c2efd6e905b9bc56fd0a78d93115298-cc_ft_384.webp',
     featured: true,
-    detailUrl: 'https://www.zillow.com/homedetails/2500-W-Franklin-St-Baltimore-MD-21223/90009866_zpid/',
+    detailUrl: 'https://www.nestfully.com/homes-for-sale/2500-W-Franklin-Street-Baltimore-MD-21223-433160914',
   }
 ]
