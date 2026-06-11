@@ -93,7 +93,7 @@ export const listings = [
     sqft: '1,720',
     type: 'Townhouse',
     status: 'For Sale',
-    image: 'https://photos.zillowstatic.com/fp/3c2efd6e905b9bc56fd0a78d93115298-cc_ft_384.webp',
+    image: 'https://photos.prod.cirrussystem.net/1774/fbfc665e0775606a5a0cfc7a8114ce8d/4220306601.jpeg?format=webp&d=l',
     featured: true,
     detailUrl: 'https://www.nestfully.com/homes-for-sale/2500-W-Franklin-Street-Baltimore-MD-21223-433160914',
   },
