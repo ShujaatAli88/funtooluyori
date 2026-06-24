@@ -10,6 +10,7 @@ import Testimonials from './pages/Testimonials'
 import Contact from './pages/Contact'
 import Services from './pages/Services'
 import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import AdminReviews from './pages/AdminReviews'
 
 const pageVariants = {
@@ -42,6 +43,7 @@ function AnimatedRoutes() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/admin-reviews" element={<AdminReviews />} />
           <Route path="*" element={<Home />} />
         </Routes>
