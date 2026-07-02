@@ -200,7 +200,7 @@ export const listings = [
     detailUrl: 'https://www.nestfully.com/homes-for-sale/504-Pebblebrook-Lane-Glen-Burnie-MD-21060-411688195',
   },
   {
-    id: 21,
+    id: 22,
     address: '2542 Verona Place Unit B',
     city: 'Ellicott City, MD 21042',
     price: '$610,080',
@@ -213,4 +213,19 @@ export const listings = [
     featured: true,
     detailUrl: 'https://www.nestfully.com/homes-for-sale/2542-Verona-Place-Unit-B-Ellicott-City-MD-21042-385188063',
   },
+
+  {
+    id: 23,
+    address: '3600 Pocono Place',
+    city: 'Beltsville, MD 20705',
+    price: '$650,000',
+    beds: 5,
+    baths: 4,
+    sqft: '3,860',
+    type: 'Single Family',
+    status: 'Coming Soon',
+    image: '',
+    featured: true,
+    detailUrl: 'https://www.nestfully.com/homes-for-sale/3600-Pocono-Place-Beltsville-MD-20705-435158128',
+  }
 ]

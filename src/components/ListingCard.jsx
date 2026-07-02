@@ -9,6 +9,7 @@ export default function ListingCard({ listing }) {
     'Under Contract': 'bg-primary text-white',
     'Sold': 'bg-accent text-primary',
     'Rented': 'bg-primary text-white',
+    'Coming Soon': 'bg-primary text-secondary',
   }
 
   return (
@@ -19,12 +20,30 @@ export default function ListingCard({ listing }) {
     >
       {/* Image */}
       <div className="relative overflow-hidden aspect-[4/3]">
-        <img
-          src={image}
-          alt={`${address} — ${type}`}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          loading="lazy"
-        />
+        {image ? (
+          <img
+            src={image}
+            alt={`${address} — ${type}`}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-primary to-primary/80 flex flex-col items-center justify-center gap-3 transition-transform duration-700 group-hover:scale-105">
+            <svg
+              className="w-10 h-10 text-secondary"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path d="M3 11.5 12 4l9 7.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M5 10v9a1 1 0 0 0 1 1h3v-6h6v6h3a1 1 0 0 0 1-1v-9" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span className="font-heading text-sm tracking-[0.2em] uppercase text-secondary">
+              Photos Coming Soon
+            </span>
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <span
           className={`absolute top-4 left-4 px-3 py-1 text-xs font-body font-medium tracking-wide rounded-sm ${
@@ -63,7 +82,7 @@ export default function ListingCard({ listing }) {
           rel="noopener noreferrer"
           className="block w-full text-center py-3 border border-secondary text-secondary font-body text-sm font-medium tracking-wide hover:bg-secondary hover:text-white transition-all duration-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-1 min-h-[44px] flex items-center justify-center"
         >
-          View Property
+          {status === 'Coming Soon' ? 'Get Notified' : 'View Property'}
         </a>
       </div>
     </motion.article>

@@ -47,7 +47,7 @@ export default function Listings() {
   const filtered = useMemo(() => {
     const range = priceRanges[priceRange]
     return listings.filter((l) => {
-      if (activeTab === 'active' && l.status !== 'For Sale' && l.status !== 'For Rent') return false
+      if (activeTab === 'active' && l.status !== 'For Sale' && l.status !== 'For Rent' && l.status !== 'Coming Soon') return false
       if (activeTab === 'sold' && l.status !== 'Sold' && l.status !== 'Rented') return false
       if (activeTab === 'lease' && l.status !== 'Lease' && l.status !== 'Lease') return false
       if (activeTab === 'closed' && l.status !== 'Closed' && l.status !== 'Closed') return false
