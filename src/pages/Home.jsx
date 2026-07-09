@@ -101,7 +101,7 @@ export default function Home() {
 
                 {/* Floating stat */}
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-background px-5 py-4 shadow-xl">
-                  <p className="font-heading text-2xl font-semibold text-secondary text-center whitespace-nowrap">Exceeding Client's Expectations</p>
+                  <p className="font-heading text-2xl font-semibold text-secondary text-center whitespace-nowrap">Exceeding Clients' Expectations</p>
                 </div>
               </div>
             </FadeUp>
