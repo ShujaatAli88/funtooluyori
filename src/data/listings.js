@@ -212,20 +212,5 @@ export const listings = [
     image: 'https://photos.prod.cirrussystem.net/1774/8f1867a52ec615d03d2ae1c123aa5aca/3710576099.jpeg?format=webp&d=l',
     featured: true,
     detailUrl: 'https://www.nestfully.com/homes-for-sale/2542-Verona-Place-Unit-B-Ellicott-City-MD-21042-385188063',
-  },
-
-  {
-    id: 23,
-    address: '3600 Pocono Place',
-    city: 'Beltsville, MD 20705',
-    price: '$650,000',
-    beds: 5,
-    baths: 4,
-    sqft: '3,860',
-    type: 'Single Family',
-    status: 'Coming Soon',
-    image: '',
-    featured: true,
-    detailUrl: 'https://www.nestfully.com/homes-for-sale/3600-Pocono-Place-Beltsville-MD-20705-435158128',
   }
 ]
