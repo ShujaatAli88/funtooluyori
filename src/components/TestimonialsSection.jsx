@@ -148,7 +148,6 @@ export default function TestimonialsSection() {
         .from('testimonials')
         .select('*')
         .order('created_at', { ascending: false })
-        .limit(9)
       setItems(data || [])
       setLoading(false)
     }

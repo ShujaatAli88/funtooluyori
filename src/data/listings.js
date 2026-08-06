@@ -212,5 +212,19 @@ export const listings = [
     image: 'https://photos.prod.cirrussystem.net/1774/8f1867a52ec615d03d2ae1c123aa5aca/3710576099.jpeg?format=webp&d=l',
     featured: true,
     detailUrl: 'https://www.nestfully.com/homes-for-sale/2542-Verona-Place-Unit-B-Ellicott-City-MD-21042-385188063',
-  }
+  },
+  {
+    id: 23,
+    address: '1017 Flester Lane',
+    city: 'Laurel, MD 20707',
+    price: '$530,000',
+    beds: 4,
+    baths: 4,
+    sqft: '2,405',
+    type: 'Townhouse',
+    status: 'Active',
+    image: '/listing_1.webp',
+    featured: true,
+    detailUrl: 'https://www.nestfully.com/homes-for-sale/1017-Flester-Lane-Laurel-MD-20707-430062034',
+  },
 ]
