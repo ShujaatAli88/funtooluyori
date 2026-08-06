@@ -222,7 +222,7 @@ export const listings = [
     baths: 4,
     sqft: '2,405',
     type: 'Townhouse',
-    status: 'Active',
+    status: 'For Sale',
     image: '/listing_1.webp',
     featured: true,
     detailUrl: 'https://www.nestfully.com/homes-for-sale/1017-Flester-Lane-Laurel-MD-20707-430062034',
