@@ -49,8 +49,8 @@ export default function Listings() {
     return listings.filter((l) => {
       if (activeTab === 'active' && l.status !== 'For Sale' && l.status !== 'For Rent' && l.status !== 'Coming Soon') return false
       if (activeTab === 'sold' && l.status !== 'Sold' && l.status !== 'Rented') return false
-      if (activeTab === 'lease' && l.status !== 'Lease' && l.status !== 'Lease') return false
-      if (activeTab === 'closed' && l.status !== 'Closed' && l.status !== 'Closed') return false
+      if (activeTab === 'lease' && l.transactionType !== 'Lease' && l.status !== 'Lease') return false
+      if (activeTab === 'closed' && l.status !== 'Closed') return false
       const price = parsePrice(l.price)
       if (price < range.min || price > range.max) return false
       if (minBeds === '3+' && l.beds < 3) return false
