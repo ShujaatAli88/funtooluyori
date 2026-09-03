@@ -87,18 +87,16 @@ export const listings = [
     id: 16,
     address: '2500 W Franklin',
     city: 'Baltimore MD 21223',
-    price: '$299,000',
-    beds: 5,
+    price: '$2,900',
+    beds: 4,
     baths: 4,
     sqft: '1,720',
     type: 'Townhouse',
-    status: 'For Sale',
-    image: 'https://photos.prod.cirrussystem.net/1774/fbfc665e0775606a5a0cfc7a8114ce8d/4220306601.jpeg?format=webp&d=l',
+    status: 'Lease',
+    image: 'https://photos.prod.cirrussystem.net/1774/4a9d9a230751b23c3d6004181a303125/1248542293.jpeg?format=webp&d=l',
     featured: true,
-    detailUrl: 'https://www.nestfully.com/homes-for-sale/2500-W-Franklin-Street-Baltimore-MD-21223-433160914',
+    detailUrl: 'https://www.nestfully.com/rentals/2500-W-Franklin-Street-Baltimore-MD-21223-438933631',
   },
-
-
 
 
   {
@@ -130,7 +128,7 @@ export const listings = [
     detailUrl: 'https://www.nestfully.com/homes-for-sale/1108-Arcola-Avenue-Silver-Spring-MD-20902-381884344',
   },
   {
-    id: 18,
+    id: 25,
     address: '1612 N Gilmor Street',
     city: 'Baltimore, MD 21217',
     price: '$80,000',
@@ -158,7 +156,7 @@ export const listings = [
     detailUrl: 'https://www.nestfully.com/homes-for-sale/108-Gray-Street-Capitol-Heights-MD-20743-392586699',
   },
   {
-    id: 19,
+    id: 26,
     address: '11 Brooks Nolen Way',
     city: 'Owings Mills, MD 21117',
     price: '$799,999',
